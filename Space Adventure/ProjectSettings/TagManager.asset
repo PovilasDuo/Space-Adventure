@@ -5,16 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
-  - Wall
+  - Asteroid
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Other
-  - Walls
+  - 
   - 
   - 
   - 

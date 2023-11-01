@@ -58,7 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Povilo\Scripts\RocketShipController.cs" />
-    <Compile Include="Assets\Povilo\Scripts\BulletCollision.cs" />
+    <Compile Include="Assets\Povilo\Scripts\SceneWrap.cs" />
+    <Compile Include="Assets\Povilo\Scripts\ObjectController.cs" />
+    <Compile Include="Assets\Povilo\Scripts\AsteroidSpawner.cs" />
+    <Compile Include="Assets\Povilo\Scripts\ObstacleSpawnerTest.cs" />
+    <Compile Include="Assets\Povilo\Scripts\AsteroidCollision.cs" />
+    <Compile Include="Assets\Povilo\Scripts\AsteroidDestroyer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
