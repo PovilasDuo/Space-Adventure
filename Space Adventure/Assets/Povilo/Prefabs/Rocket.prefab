@@ -137,8 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  speed: 6
-  rotationSpeed: 80
+  speed: 15
+  rotationSpeed: 300
   projectilePrefab: {fileID: 1004330308613007220, guid: f918bb6f79b384f43b0dd595aa280467, type: 3}
   projectileSpawnPoint: {fileID: 1607826380}
-  projectileForce: 2
+  projectileForce: 3

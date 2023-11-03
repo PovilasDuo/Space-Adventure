@@ -13,6 +13,10 @@ public class AsteroidSpawner: MonoBehaviour
 	public float spawnDelay = 1.0f;
 	private float nextSpawnTime = 0.0f;
 
+	public int level1SpawnChance = 60;
+	public int level2SpawnChance = 40;
+	public int level3SpawnChance = 10;
+
 	public float asteroidSpeed = 750;
 	public float asteroidRotationSpeed = 2f;
 
@@ -63,7 +67,23 @@ public class AsteroidSpawner: MonoBehaviour
 				break;
 		}
 		Vector3 spawnPosition = new(spawnX, spawnY, 0f);
+
+		int spawnScaleRNG = Random.Range(0, 100);
+		int spawnScale;
+		switch (spawnScaleRNG)
+		{
+			case > 90:
+				spawnScale = 3;
+				break;
+			case > 60:
+				spawnScale = 2;
+				break;
+			default:
+				spawnScale = 1;
+				break;
+		}
 		GameObject asteroidSpawned = Instantiate(asteroidPrefab, spawnPosition, Quaternion.identity);
+		asteroidSpawned.transform.localScale *= spawnScale;
 
 		Vector3 direction = (Camera.main.transform.position - asteroidSpawned.GetComponent<Transform>().position).normalized;
 		asteroidSpawned.GetComponent<Rigidbody>().AddForce(direction * asteroidSpeed);
