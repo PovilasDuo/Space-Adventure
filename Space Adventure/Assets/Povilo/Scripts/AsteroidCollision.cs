@@ -26,9 +26,9 @@ public class AsteroidCollision : MonoBehaviour
 			//Different cases based on the asteroid size
 			if (this.transform.localScale == new Vector3(3f, 3f, 3f))
 			{
-				GameObject asteroid1 = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)]);
-				GameObject asteroid2 = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)]);
-				GameObject asteroid3 = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)]);
+				GameObject asteroid1 = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)], this.transform.position, Quaternion.identity);
+				GameObject asteroid2 = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)], this.transform.position, Quaternion.identity);
+				GameObject asteroid3 = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)], this.transform.position, Quaternion.identity);
 				asteroid1.transform.localScale = new Vector3(2, 2, 2);
 				asteroid2.transform.localScale = new Vector3(2, 2, 2);
 				asteroid3.transform.localScale = new Vector3(2, 2, 2);
@@ -41,8 +41,8 @@ public class AsteroidCollision : MonoBehaviour
 			}
 			else if (this.transform.localScale == new Vector3(2f, 2f, 2f))
 			{
-				GameObject asteroid1 = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)]);
-				GameObject asteroid2 = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)]);
+				GameObject asteroid1 = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)], this.transform.position, Quaternion.identity);
+				GameObject asteroid2 = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)], this.transform.position, Quaternion.identity);
 				asteroid1.transform.localScale = new Vector3(1, 1, 1);
 				asteroid2.transform.localScale = new Vector3(1, 1, 1);
 

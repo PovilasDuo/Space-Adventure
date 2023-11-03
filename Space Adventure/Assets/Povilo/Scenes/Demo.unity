@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 875835394}
-  highScoreText: {fileID: 0}
+  highScoreText: {fileID: 419080133}
   highScore: 0
 --- !u!1 &71540385
 GameObject:
