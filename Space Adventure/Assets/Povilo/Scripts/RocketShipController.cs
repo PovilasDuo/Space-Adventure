@@ -5,10 +5,12 @@ public class RocketShipController : MonoBehaviour
 	public int health = 10;
 	public float speed = 6f;
 	public float rotationSpeed = 80f;
+
 	public GameObject projectilePrefab;
 	public Transform projectileSpawnPoint;
 	public float projectileForce = 2f;
 	public GameObject particlesFire;
+	public AudioSource lazer;
 
 	private bool moving;
 	private float rotation;
@@ -34,6 +36,7 @@ public class RocketShipController : MonoBehaviour
 	/// </summary>
 	void FireProjectile()
 	{
+		lazer.Play();
 		GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
 		Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
 		projectileRb.AddForce(projectileSpawnPoint.up * projectileForce, ForceMode.Impulse);
