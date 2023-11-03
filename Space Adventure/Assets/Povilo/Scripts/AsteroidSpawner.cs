@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class AsteroidSpawner: MonoBehaviour
+public class AsteroidSpawner : MonoBehaviour
 {
 	public static GameObject player;
 	private Camera mainCamera;
-	public GameObject asteroidPrefab;
+	private GameObject asteroidPrefab;
+	public List<GameObject> asteroidList;
 
 	public float spawnSpeed = 2f;
 	public float spawnDelay = 1.0f;
@@ -82,6 +82,7 @@ public class AsteroidSpawner: MonoBehaviour
 				spawnScale = 1;
 				break;
 		}
+		asteroidPrefab = asteroidList[Random.Range(0, asteroidList.Count - 1)];
 		GameObject asteroidSpawned = Instantiate(asteroidPrefab, spawnPosition, Quaternion.identity);
 		asteroidSpawned.transform.localScale *= spawnScale;
 
