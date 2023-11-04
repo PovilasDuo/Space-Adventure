@@ -52,7 +52,10 @@ public class UIControl : MonoBehaviour
 	/// </summary>
 	public void ExitGame()
 	{
-		Debug.Log("Game was exited");
-		ExitGame();
+#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
 	}
 }
