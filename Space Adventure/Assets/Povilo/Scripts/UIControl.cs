@@ -19,6 +19,9 @@ public class UIControl : MonoBehaviour
 	public TextMeshProUGUI livesText;
 	public int lives;
 
+	public TextMeshProUGUI highScoreMessage;
+	private const string HighScoreKey = "HighScore";
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -90,6 +93,14 @@ public class UIControl : MonoBehaviour
 					highScoreText.gameObject.SetActive(false);
 					livesText.gameObject.SetActive(false);
 					rocket.SetActive(false);
+
+					int currentHighScore = PlayerPrefs.GetInt(HighScoreKey, 0);
+					if (highScore >= currentHighScore)
+					{
+						PlayerPrefs.SetInt(HighScoreKey, highScore);
+						PlayerPrefs.Save();
+						highScoreMessage.gameObject.SetActive(true);
+					}
 				}
 			}
 		}
