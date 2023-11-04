@@ -25,30 +25,29 @@ public class AsteroidCollision : MonoBehaviour
 		//For bullets
 		if (collision.collider.tag == "Bullet")
 		{
-			GameObject.FindGameObjectWithTag("GameManager").GetComponent<UIControl>().highScore++;
 			//Different cases based on the asteroid size
 			if (this.transform.localScale == new Vector3(3f, 3f, 3f))
 			{
 				SpawnAsteroid(3, 2f, 10f);
-				AsteroidDestruction(audioList[1]);
+				AsteroidDestruction(audioList[1], collision.gameObject, 3);
 
 			}
 			else if (this.transform.localScale == new Vector3(2f, 2f, 2f))
 			{
 				SpawnAsteroid(2, 1f, 20f);
-				AsteroidDestruction(audioList[1]);
+				AsteroidDestruction(audioList[1], collision.gameObject, 2);
 			}
 			else
 			{
-				AsteroidDestruction(audioList[1]);
+				AsteroidDestruction(audioList[1], collision.gameObject, 1);
 			}
 		}
 		//Collision with the Player (Rocket)
 		else if (collision.collider.tag == "Player")
 		{
-			collision.collider.GetComponent<RocketShipController>().health -= 1;
-			Debug.Log("OOOOF");
-			AsteroidDestruction(audioList[2]);
+			collision.collider.GetComponent<RocketShipController>().health--;
+			GameObject.FindGameObjectWithTag("GameManager").GetComponent<UIControl>().lives--;
+			AsteroidDestruction(audioList[2], new GameObject(), 0);
 		}
 	}
 
@@ -70,14 +69,19 @@ public class AsteroidCollision : MonoBehaviour
 	}
 
 	/// <summary>
-	/// Destroys the asteroid
+	/// Destroys the asteroid and the bullet
 	/// </summary>
-	private void AsteroidDestruction(AudioSource audioSource)
+	/// <param name="audioSource">Audio source played upon destruction</param>
+	/// <param name="bullet">Bullet GameObject that is destroyed alongside the asteroid</param>
+	/// <param name="highScoreIncrease">The amount that the highscore is increased</param>
+	private void AsteroidDestruction(AudioSource audioSource, GameObject bullet, int highScoreIncrease)
 	{
+		GameObject.FindGameObjectWithTag("GameManager").GetComponent<UIControl>().highScore += highScoreIncrease;
 		audioSource.Play();
 		Instantiate(explosionPS, this.transform.position, Quaternion.identity);
 		GetComponent<MeshRenderer>().enabled = false;
 		GetComponent<MeshCollider>().enabled = false;
+		Destroy(bullet);
 		Destroy(this.gameObject, audioSource.clip.length);
 	}
 }

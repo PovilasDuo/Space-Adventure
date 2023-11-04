@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIControl : MonoBehaviour
 {
@@ -12,18 +13,31 @@ public class UIControl : MonoBehaviour
 	public TextMeshProUGUI highScoreText;
 	public int highScore;
 
+	public GameObject gameOverPanel;
+	private bool gameOver;
+
+	public TextMeshProUGUI livesText;
+	public int lives;
+
 	// Start is called before the first frame update
 	void Start()
     {
 		pausePanel.SetActive(false);
 		paused = false;
+
+		gameOverPanel.SetActive(false);
+		gameOver = false;
+
+		lives = GameObject.Find("Rocket").GetComponent<RocketShipController>().health;
 	}
 
     // Update is called once per frame
     void Update()
     {
 		highScoreText.text = highScore.ToString();
+		livesText.text = lives.ToString();
 		Pause();
+		GameOver();
 	}
 
 	/// <summary>
@@ -36,14 +50,12 @@ public class UIControl : MonoBehaviour
 			Time.timeScale = 1f;
 			pausePanel.SetActive(false);
 			paused = false;
-			Debug.Log("ASD");
 		}
 		else if (Input.GetKeyDown("escape") && !paused)
 		{
 			Time.timeScale = 0f;
 			pausePanel.SetActive(true);
 			paused = true;
-			Debug.Log("ASDASDASD");
 		}
 	}
 
@@ -57,5 +69,37 @@ public class UIControl : MonoBehaviour
 #else
         Application.Quit();
 #endif
+	}
+
+	/// <summary>
+	/// Triggers a game over panel when player's health is depleted
+	/// </summary>
+	public void GameOver()
+	{
+		if (!gameOver)
+		{
+			GameObject rocket = GameObject.Find("Rocket");
+			if (rocket != null)
+			{
+				if (GameObject.Find("Rocket").GetComponent<RocketShipController>().health <= 0)
+				{
+					gameOver = true;
+					gameOverPanel.SetActive(true);
+					gameOverPanel.GetComponentInChildren<TextMeshProUGUI>().text += highScore.ToString();
+
+					highScoreText.gameObject.SetActive(false);
+					livesText.gameObject.SetActive(false);
+					rocket.SetActive(false);
+				}
+			}
+		}
+	}
+
+	/// <summary>
+	/// 
+	/// </summary>
+	public void Restart()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }
