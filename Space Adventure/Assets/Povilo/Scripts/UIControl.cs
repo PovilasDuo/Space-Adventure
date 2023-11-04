@@ -26,7 +26,9 @@ public class UIControl : MonoBehaviour
 		Pause();
 	}
 
-
+	/// <summary>
+	/// Pauses the game and enables the pause panel
+	/// </summary>
 	private void Pause()
 	{
 		if (Input.GetKeyDown("escape") && paused)
@@ -43,5 +45,14 @@ public class UIControl : MonoBehaviour
 			paused = true;
 			Debug.Log("ASDASDASD");
 		}
+	}
+
+	/// <summary>
+	/// Exits the game
+	/// </summary>
+	public void ExitGame()
+	{
+		Debug.Log("Game was exited");
+		ExitGame();
 	}
 }

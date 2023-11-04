@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class AsteroidCollision : MonoBehaviour
 {
-	public List<GameObject> asteroidList;
+	private List<GameObject> asteroidList;
+	private AudioSource[] audioList;
+	public GameObject explosionPS;
 
 	/// <summary>
 	/// 
 	/// </summary>
 	private void Start()
 	{
+		audioList = GameObject.Find("AudioManager").GetComponents<AudioSource>();
 		asteroidList = GameObject.FindWithTag("GameManager").GetComponent<AsteroidSpawner>().asteroidList;
 	}
 	/// <summary>
@@ -26,43 +29,55 @@ public class AsteroidCollision : MonoBehaviour
 			//Different cases based on the asteroid size
 			if (this.transform.localScale == new Vector3(3f, 3f, 3f))
 			{
-				GameObject asteroid1 = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)], this.transform.position, Quaternion.identity);
-				GameObject asteroid2 = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)], this.transform.position, Quaternion.identity);
-				GameObject asteroid3 = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)], this.transform.position, Quaternion.identity);
-				asteroid1.transform.localScale = new Vector3(2, 2, 2);
-				asteroid2.transform.localScale = new Vector3(2, 2, 2);
-				asteroid3.transform.localScale = new Vector3(2, 2, 2);
+				SpawnAsteroid(3, 2f, 10f);
+				AsteroidDestruction(audioList[1]);
 
-				asteroid1.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0);
-				asteroid2.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0);
-				asteroid3.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0);
-
-				Destroy(this.gameObject);
 			}
 			else if (this.transform.localScale == new Vector3(2f, 2f, 2f))
 			{
-				GameObject asteroid1 = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)], this.transform.position, Quaternion.identity);
-				GameObject asteroid2 = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)], this.transform.position, Quaternion.identity);
-				asteroid1.transform.localScale = new Vector3(1, 1, 1);
-				asteroid2.transform.localScale = new Vector3(1, 1, 1);
-
-				asteroid1.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-20f, 20f), Random.Range(-20f, 20f), 0);
-				asteroid2.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-20f, 20f), Random.Range(-20f, 20f), 0);
-
-				Destroy(this.gameObject);
+				SpawnAsteroid(2, 1f, 20f);
+				AsteroidDestruction(audioList[1]);
 			}
 			else
 			{
-				Destroy(collision.collider.gameObject);
-				Destroy(this.gameObject);
+				AsteroidDestruction(audioList[1]);
 			}
 		}
 		//Collision with the Player (Rocket)
 		else if (collision.collider.tag == "Player")
 		{
-			Destroy(this.gameObject);
 			collision.collider.GetComponent<RocketShipController>().health -= 1;
 			Debug.Log("OOOOF");
+			AsteroidDestruction(audioList[2]);
 		}
+	}
+
+	/// <summary>
+	/// Spawns asteroids
+	/// </summary>
+	/// <param name="numberOfAsteroidsToSpawn">Number of asteroids needed to spawn</param>
+	/// <param name="asteroidSize">Size of the asteroids that will be spawned (scaled cubicly)</param>
+	/// <param name="asteroidVelocity">Velocity of the asteroids that will be spawned</param>
+
+	private void SpawnAsteroid(int numberOfAsteroidsToSpawn, float asteroidSize, float asteroidVelocity)
+	{
+		for (int i = 0; i < numberOfAsteroidsToSpawn; i++)
+		{
+			GameObject asteroid = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)], this.transform.position, Quaternion.identity);
+			asteroid.transform.localScale = new Vector3(asteroidSize, asteroidSize, asteroidSize);
+			asteroid.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-asteroidVelocity, asteroidVelocity), Random.Range(-asteroidVelocity, asteroidVelocity), 0);
+		}
+	}
+
+	/// <summary>
+	/// Destroys the asteroid
+	/// </summary>
+	private void AsteroidDestruction(AudioSource audioSource)
+	{
+		audioSource.Play();
+		Instantiate(explosionPS, this.transform.position, Quaternion.identity);
+		GetComponent<MeshRenderer>().enabled = false;
+		GetComponent<MeshCollider>().enabled = false;
+		Destroy(this.gameObject, audioSource.clip.length);
 	}
 }

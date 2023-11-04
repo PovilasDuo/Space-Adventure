@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ad0dda298a97745a1210aa8c860b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidList: []
+  explosionPS: {fileID: 4206757626649469342, guid: de4a3d8e1395095488176bc9f10788ea, type: 3}
 --- !u!114 &-2580951606586031688
 MonoBehaviour:
   m_ObjectHideFlags: 0
