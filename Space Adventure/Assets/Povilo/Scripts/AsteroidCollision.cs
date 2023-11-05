@@ -11,7 +11,7 @@ public class AsteroidCollision : MonoBehaviour
 	public GameObject explosionPS;
 
 	/// <summary>
-	/// 
+	/// Gets the required things for the game object and script
 	/// </summary>
 	private void Start()
 	{
@@ -31,13 +31,13 @@ public class AsteroidCollision : MonoBehaviour
 			//Different cases based on the asteroid size
 			if (this.transform.localScale == new Vector3(3f, 3f, 3f))
 			{
-				SpawnAsteroid(3, 2f, 10f);
+				SpawnAsteroid(3, 2f, 20f);
 				AsteroidDestruction(audioList[1], collision.gameObject, 3);
 
 			}
 			else if (this.transform.localScale == new Vector3(2f, 2f, 2f))
 			{
-				SpawnAsteroid(2, 1f, 20f);
+				SpawnAsteroid(2, 1f, 40f);
 				AsteroidDestruction(audioList[1], collision.gameObject, 2);
 			}
 			else
@@ -68,6 +68,8 @@ public class AsteroidCollision : MonoBehaviour
 			GameObject asteroid = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)], this.transform.position, Quaternion.identity);
 			asteroid.transform.localScale = new Vector3(asteroidSize, asteroidSize, asteroidSize);
 			asteroid.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-asteroidVelocity, asteroidVelocity), Random.Range(-asteroidVelocity, asteroidVelocity), 0);
+			asteroid.GetComponent<SceneWrap>().collisionCount = 0;
+			asteroid.GetComponent<SceneWrap>().enabled = true;
 		}
 	}
 
@@ -88,9 +90,17 @@ public class AsteroidCollision : MonoBehaviour
 		Destroy(this.gameObject, audioSource.clip.length);
 	}
 
+	/// <summary>
+	/// Enables the SceneWrap script after a few seconds
+	/// </summary>
+	/// <param name="asteroid">The asteroid that the script will be enabled</param>
+	/// <returns>Time</returns>
 	private IEnumerator AsteroidSceneWrap(GameObject asteroid)
 	{
-		yield return new WaitForSeconds(3f);
-		asteroid.GetComponent<SceneWrap>().enabled = true;
+		if (asteroid.GetComponent<SceneWrap>().enabled == false)
+		{
+			yield return new WaitForSeconds(3f);
+			asteroid.GetComponent<SceneWrap>().enabled = true;
+		}
 	}
 }

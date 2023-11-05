@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca039c28b65d868459aaa89f869882dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 3
   speed: 15
   rotationSpeed: 300
   projectilePrefab: {fileID: 1004330308613007220, guid: f918bb6f79b384f43b0dd595aa280467, type: 3}
@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127e3a91389462c4a9053ee7d8baa49a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionCount: 0
 --- !u!1 &5667783407915268255
 GameObject:
   m_ObjectHideFlags: 0

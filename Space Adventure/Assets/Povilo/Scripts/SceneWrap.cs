@@ -7,7 +7,7 @@ public class SceneWrap : MonoBehaviour
 {
 	private Camera mainCamera;
 	private bool isVisible;
-	private int collisionCount = 0;
+	public int collisionCount = 0;
 
 	// Start is called before the first frame update
 	void Start()
