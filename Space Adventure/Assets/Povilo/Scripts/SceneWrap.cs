@@ -7,6 +7,7 @@ public class SceneWrap : MonoBehaviour
 {
 	private Camera mainCamera;
 	private bool isVisible;
+	private int collisionCount = 0;
 
 	// Start is called before the first frame update
 	void Start()
@@ -17,6 +18,11 @@ public class SceneWrap : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate()
 	{
+		if (collisionCount == 2)
+		{
+			Destroy(this.gameObject);
+		}
+
 		CheckVisibility();
 		if (!isVisible)
 		{
@@ -34,6 +40,10 @@ public class SceneWrap : MonoBehaviour
 					float yValue = transform.position.y * -1;
 					transform.position = new Vector3(transform.position.x, yValue, transform.position.z);
 				
+				}
+				if (this.tag != "Player")
+				{
+					collisionCount++;
 				}
 			}
 		}

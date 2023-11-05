@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -15,6 +17,7 @@ public class AsteroidCollision : MonoBehaviour
 	{
 		audioList = GameObject.Find("AudioManager").GetComponents<AudioSource>();
 		asteroidList = GameObject.FindWithTag("GameManager").GetComponent<AsteroidSpawner>().asteroidList;
+		StartCoroutine(AsteroidSceneWrap(this.gameObject));
 	}
 	/// <summary>
 	/// Simple collision
@@ -83,5 +86,11 @@ public class AsteroidCollision : MonoBehaviour
 		GetComponent<MeshCollider>().enabled = false;
 		Destroy(bullet);
 		Destroy(this.gameObject, audioSource.clip.length);
+	}
+
+	private IEnumerator AsteroidSceneWrap(GameObject asteroid)
+	{
+		yield return new WaitForSeconds(3f);
+		asteroid.GetComponent<SceneWrap>().enabled = true;
 	}
 }
