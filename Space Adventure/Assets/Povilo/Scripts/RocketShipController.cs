@@ -5,6 +5,8 @@ public class RocketShipController : MonoBehaviour
 	public int health = 10;
 	public float speed = 6f;
 	public float rotationSpeed = 80f;
+	public float fireRate = 1f; 
+	private float nextFireTime = 0f;
 
 	public GameObject projectilePrefab;
 	public Transform projectileSpawnPoint;
@@ -23,9 +25,10 @@ public class RocketShipController : MonoBehaviour
 	void Update()
 	{
 		Movement();
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space) && Time.time >= nextFireTime)
 		{
 			FireProjectile();
+			nextFireTime = Time.time + 1f / fireRate;
 		}
 	}
 		
