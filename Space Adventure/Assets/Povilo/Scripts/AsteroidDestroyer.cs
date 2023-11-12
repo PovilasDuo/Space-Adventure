@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AsteroidDestroyer : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float time = 10f;
     void Start()
     {
-        Destroy(this.gameObject, 10f);
+        Destroy(this.gameObject, time);
     }
 }

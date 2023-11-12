@@ -168,6 +168,32 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &58481428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58481419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c02fd2dfe4cf280468ec33a5a8c67f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidList:
+  - {fileID: 6967913273201434369, guid: cfdf3417a8e6e2c47ad941bbb1008ce2, type: 3}
+  - {fileID: 2140127642685762589, guid: 0d217b07d85b1814da8695013752874d, type: 3}
+  - {fileID: 8931956392464295895, guid: 3876c47717cc8e2468fed10a9323017c, type: 3}
+  - {fileID: 1834007888454557136, guid: 7c0ad48f793e5a645b180f39da9ede55, type: 3}
+  - {fileID: 7677813379512808047, guid: 9170ad6f7786371478aa382a7f5ffdeb, type: 3}
+  - {fileID: 3351920563146768398, guid: c396b6571fd5de44b8b41c376ed43ace, type: 3}
+  spawnSpeed: 2
+  spawnDelay: 1
+  level1SpawnChance: 60
+  level2SpawnChance: 40
+  level3SpawnChance: 10
+  asteroidSpeed: 750
+  gameStart: 0
 --- !u!1 &71540385
 GameObject:
   m_ObjectHideFlags: 0
@@ -3720,6 +3746,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7663047683588483762, guid: 1e4e0d851ee1a74469444a14ec4df4fd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7663047683588483762, guid: 1e4e0d851ee1a74469444a14ec4df4fd, type: 3}
       propertyPath: textPanel
       value: 
       objectReference: {fileID: 453009280}
@@ -3787,5 +3817,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7663047683588483762, guid: 1e4e0d851ee1a74469444a14ec4df4fd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1e4e0d851ee1a74469444a14ec4df4fd, type: 3}
