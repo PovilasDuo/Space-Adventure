@@ -15,8 +15,10 @@ public class AsteroidCollision : MonoBehaviour
 	/// </summary>
 	private void Start()
 	{
-		audioList = GameObject.Find("AudioManager").GetComponents<AudioSource>();
-		asteroidList = GameObject.FindWithTag("GameManager").GetComponent<AsteroidSpawner>().asteroidList;
+		Proxy proxyAudio = new Proxy("AudioManager");
+		Proxy proxyManager = new Proxy("GameManager");
+		audioList = proxyAudio.GetObject().GetComponents<AudioSource>();
+		asteroidList = proxyManager.GetObject().GetComponent<AsteroidSpawner>().asteroidList;
 		StartCoroutine(AsteroidSceneWrap(this.gameObject));
 	}
 	/// <summary>
@@ -31,13 +33,13 @@ public class AsteroidCollision : MonoBehaviour
 			//Different cases based on the asteroid size
 			if (this.transform.localScale == new Vector3(3f, 3f, 3f))
 			{
-				SpawnAsteroid(3, 2f, 20f);
+				SpawnAsteroid(3, 2f, 10f);
 				AsteroidDestruction(audioList[1], collision.gameObject, 3);
 
 			}
 			else if (this.transform.localScale == new Vector3(2f, 2f, 2f))
 			{
-				SpawnAsteroid(2, 1f, 40f);
+				SpawnAsteroid(2, 1f, 20f);
 				AsteroidDestruction(audioList[1], collision.gameObject, 2);
 			}
 			else

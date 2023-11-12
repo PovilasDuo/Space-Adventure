@@ -16,7 +16,8 @@ public class ObstacleSpawnerTest : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		player = GameObject.Find("Rocket");
+		Proxy proxy = new Proxy("Rocket");
+		player = proxy.GetObject();
 		mainCamera = Camera.main;
 	}
 

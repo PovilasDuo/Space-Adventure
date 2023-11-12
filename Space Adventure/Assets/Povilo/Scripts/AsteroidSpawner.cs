@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
 {
-	public static GameObject player;
+	//public static GameObject player;
 	private Camera mainCamera;
 	private GameObject asteroidPrefab;
 	public List<GameObject> asteroidList;
@@ -25,7 +25,7 @@ public class AsteroidSpawner : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		player = GameObject.Find("Rocket");
+		//player = GameObject.Find("Rocket");
 		mainCamera = Camera.main;
 	}
 

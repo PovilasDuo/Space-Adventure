@@ -31,7 +31,8 @@ public class UIControl : MonoBehaviour
 		gameOverPanel.SetActive(false);
 		gameOver = false;
 
-		lives = GameObject.Find("Rocket").GetComponent<RocketShipController>().health;
+		Proxy proxy = new Proxy("Rocket");
+		lives = proxy.GetObject().GetComponent<RocketShipController>().health;
 	}
 
     // Update is called once per frame
@@ -81,10 +82,11 @@ public class UIControl : MonoBehaviour
 	{
 		if (!gameOver)
 		{
-			GameObject rocket = GameObject.Find("Rocket");
+			Proxy proxy = new Proxy("Rocket");
+			GameObject rocket = proxy.GetObject();
 			if (rocket != null)
 			{
-				if (GameObject.Find("Rocket").GetComponent<RocketShipController>().health <= 0)
+				if (rocket.GetComponent<RocketShipController>().health <= 0)
 				{
 					gameOver = true;
 					gameOverPanel.SetActive(true);
