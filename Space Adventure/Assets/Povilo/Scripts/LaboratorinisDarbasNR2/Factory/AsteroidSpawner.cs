@@ -78,6 +78,7 @@ public class AsteroidSpawner : MonoBehaviour
 	private Camera mainCamera;
 	private GameObject asteroidPrefab;
 	public List<GameObject> asteroidList;
+	public GameObject powerUp;
 
 	public float spawnSpeed = 2f;
 	public float spawnDelay = 1.0f;

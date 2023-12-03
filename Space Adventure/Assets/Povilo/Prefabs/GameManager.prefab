@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7663047683588483765
+--- !u!1 &2525139728558458795
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7663047683588483763}
-  - component: {fileID: 7663047683588483762}
+  - component: {fileID: 2525139728558458805}
+  - component: {fileID: 2525139728558458801}
+  - component: {fileID: 2525139728558458798}
+  - component: {fileID: 2525139728558458804}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -17,45 +19,85 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7663047683588483763
+--- !u!4 &2525139728558458805
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7663047683588483765}
+  m_GameObject: {fileID: 2525139728558458795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3529139, y: 0.74567056, z: 0.030812616}
+  m_LocalPosition: {x: 0.3529139, y: -0.74567056, z: -0.030812616}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7663047683588483762
+--- !u!95 &2525139728558458801
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525139728558458795}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2525139728558458798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7663047683588483765}
+  m_GameObject: {fileID: 2525139728558458795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da2d3409aad24a14492754daaeecf30c, type: 3}
+  m_Script: {fileID: 11500000, guid: 121b4d7184c84f247ab4ec8be6abfc56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pausePanel: {fileID: 0}
+  highScoreText: {fileID: 0}
+  highScore: 0
+  gameOverPanel: {fileID: 0}
+  livesText: {fileID: 0}
+  lives: 0
+  highScoreMessage: {fileID: 0}
+--- !u!114 &2525139728558458804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525139728558458795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c02fd2dfe4cf280468ec33a5a8c67f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   asteroidList:
-  - {fileID: 6967913273201434369, guid: cfdf3417a8e6e2c47ad941bbb1008ce2, type: 3}
-  - {fileID: 2140127642685762589, guid: 0d217b07d85b1814da8695013752874d, type: 3}
-  - {fileID: 8931956392464295895, guid: 3876c47717cc8e2468fed10a9323017c, type: 3}
-  - {fileID: 1834007888454557136, guid: 7c0ad48f793e5a645b180f39da9ede55, type: 3}
-  - {fileID: 7677813379512808047, guid: 9170ad6f7786371478aa382a7f5ffdeb, type: 3}
-  - {fileID: 3351920563146768398, guid: c396b6571fd5de44b8b41c376ed43ace, type: 3}
+  - {fileID: 2756877199224346414, guid: cfdf3417a8e6e2c47ad941bbb1008ce2, type: 3}
+  - {fileID: 6011297531594275282, guid: 0d217b07d85b1814da8695013752874d, type: 3}
+  - {fileID: 7643365935938943242, guid: 3876c47717cc8e2468fed10a9323017c, type: 3}
+  - {fileID: 3927166367373204927, guid: 7c0ad48f793e5a645b180f39da9ede55, type: 3}
+  - {fileID: 6963657813771912511, guid: 9170ad6f7786371478aa382a7f5ffdeb, type: 3}
+  - {fileID: 8133976184020615303, guid: c396b6571fd5de44b8b41c376ed43ace, type: 3}
+  powerUp: {fileID: 8562924998531406631, guid: 7e1a13b5c8c72de498bc2586858217dd, type: 3}
   spawnSpeed: 2
   spawnDelay: 1
   level1SpawnChance: 60
   level2SpawnChance: 40
   level3SpawnChance: 10
-  asteroidSpeed: 1000
-  asteroidRotationSpeed: 5
-  textPanel: {fileID: 0}
+  asteroidSpeed: 750
+  gameStart: 0

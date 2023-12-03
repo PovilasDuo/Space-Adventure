@@ -25,7 +25,7 @@ public class RocketShipController : MonoBehaviour
 	void Update()
 	{
 		Movement();
-		if (Input.GetKeyDown(KeyCode.Space) && Time.time >= nextFireTime)
+		if (Input.GetKey(KeyCode.Space) && Time.time >= nextFireTime)
 		{
 			FireProjectile();
 			nextFireTime = Time.time + 1f / fireRate;

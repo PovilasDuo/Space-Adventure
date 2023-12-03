@@ -7,6 +7,7 @@ using UnityEngine;
 public class AsteroidCollision : MonoBehaviour
 {
 	public GameObject explosionPS;
+	public bool isPowerUp = false;
 
 	/// <summary>
 	/// Gets the required things for the game object and script

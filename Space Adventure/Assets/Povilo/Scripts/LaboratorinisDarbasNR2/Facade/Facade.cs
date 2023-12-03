@@ -1,5 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Facade : Object
@@ -9,6 +9,7 @@ public class Facade : Object
 	private AudioSource[] audioList;
 	private GameObject mainObject;
 	private GameObject explosionPS;
+	private GameObject powerUp;
 
 	/// <summary>
 	/// Constructor with parameters
@@ -32,6 +33,7 @@ public class Facade : Object
 		Proxy proxyManager = new Proxy("GameManager");
 		audioList = proxyAudio.GetObject().GetComponents<AudioSource>();
 		asteroidList = proxyManager.GetObject().GetComponent<AsteroidSpawner>().asteroidList;
+		powerUp = proxyManager.GetObject().GetComponent<AsteroidSpawner>().powerUp;
 
 		//For bullets
 		if (collision.collider.tag == "Bullet")
@@ -39,13 +41,13 @@ public class Facade : Object
 			//Different cases based on the asteroid size
 			if (mainObject.transform.localScale == new Vector3(3f, 3f, 3f))
 			{
-				SpawnAsteroid(3, 2f, 10f);
+				SpawnAsteroid(3, 2f, 5f);
 				AsteroidDestruction(audioList[1], collision.gameObject, 3);
 
 			}
 			else if (mainObject.transform.localScale == new Vector3(2f, 2f, 2f))
 			{
-				SpawnAsteroid(2, 1f, 20f);
+				SpawnAsteroid(2, 1f, 10f);
 				AsteroidDestruction(audioList[1], collision.gameObject, 2);
 			}
 			else
@@ -78,6 +80,21 @@ public class Facade : Object
 			asteroid.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-asteroidVelocity, asteroidVelocity), Random.Range(-asteroidVelocity, asteroidVelocity), 0);
 			asteroid.GetComponent<SceneWrap>().collisionCount = 0;
 			asteroid.GetComponent<SceneWrap>().enabled = true;
+
+			if (asteroid.GetComponent<AsteroidCollision>().isPowerUp)
+			{
+				asteroid.GetComponent<AsteroidCollision>().isPowerUp = false;
+			}
+			else
+			{
+				//Power up spawning
+				int powerUpRNG = Random.Range(0, 100);
+				if (powerUpRNG >= 75)
+				{
+					asteroid.GetComponent<Renderer>().material.color = Color.cyan;
+					asteroid.GetComponent<AsteroidCollision>().isPowerUp = true;
+				}
+			}
 		}
 	}
 
@@ -96,5 +113,10 @@ public class Facade : Object
 		mainObject.GetComponent<MeshCollider>().enabled = false;
 		Destroy(bullet);
 		Destroy(mainObject, audioSource.clip.length);
+		if (mainObject.GetComponent<AsteroidCollision>().isPowerUp)
+		{
+			GameObject powerUpI = Instantiate(powerUp, mainObject.transform.position, Quaternion.identity);
+			powerUpI.GetComponent<Rigidbody>().angularVelocity = new Vector3(1f, 1f) * 2f;
+		}
 	}
 }
