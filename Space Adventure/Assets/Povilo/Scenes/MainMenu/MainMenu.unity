@@ -5249,6 +5249,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4468580771172553249, guid: bb02bea9cce8df24c879055eef9e47a9, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4468580771172553250, guid: bb02bea9cce8df24c879055eef9e47a9, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -5295,6 +5299,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4468580771172553261, guid: bb02bea9cce8df24c879055eef9e47a9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565289005984964818, guid: bb02bea9cce8df24c879055eef9e47a9, type: 3}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

@@ -6,29 +6,29 @@ using UnityEngine;
 public class StartSiren : MonoBehaviour
 {
 	public AudioSource siren;
-	private GameObject rocket;
+	private GameObject gameManager;
 	private bool playing;
 	// Start is called before the first frame update
 	void Start()
     {
 		playing = false;
-		rocket = GameObject.Find("Rocket");
+		gameManager = GameObject.Find("Rocket");
 	}
 
     // Update is called once per frame
     void Update()
     {
-		if (rocket != null)
+		if (gameManager != null)
 		{
 			if (!playing)
 			{
-				if (rocket.GetComponent<RocketShipController>().health == 1)
+				if (gameManager.GetComponent<UIControl>().lives == 1)
 				{
 					siren.Play();
 					playing = true;
 				}
 			}	
-			if (rocket.GetComponent<RocketShipController>().health == 0)
+			if (gameManager.GetComponent<UIControl>().lives == 0)
 			{
 				siren.Stop();
 			}

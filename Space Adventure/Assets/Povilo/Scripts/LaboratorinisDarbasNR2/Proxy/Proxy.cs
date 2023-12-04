@@ -38,7 +38,7 @@ public class Proxy : Subject
 		}
 		catch (Exception ex)
 		{
-			Debug.LogError("Exception while finding object: " + ex.Message);
+			//Debug.LogError("Exception while finding object: " + ex.Message);
 			return null;
 		}
 	}

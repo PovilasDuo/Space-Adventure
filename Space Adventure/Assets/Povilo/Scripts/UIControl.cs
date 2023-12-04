@@ -84,25 +84,28 @@ public class UIControl : MonoBehaviour
 		{
 			Proxy proxy = new Proxy("Rocket");
 			GameObject rocket = proxy.GetObject();
-			if (rocket != null)
+			Proxy proxy2 = new Proxy("Rocket2");
+			GameObject rocket2 = proxy2.GetObject();
+			if (lives <= 0)
 			{
-				if (rocket.GetComponent<RocketShipController>().health <= 0)
+				gameOver = true;
+				gameOverPanel.SetActive(true);
+				gameOverPanel.GetComponentInChildren<TextMeshProUGUI>().text += highScore.ToString();
+
+				highScoreText.gameObject.SetActive(false);
+				livesText.gameObject.SetActive(false);
+				if (rocket2 != null)
 				{
-					gameOver = true;
-					gameOverPanel.SetActive(true);
-					gameOverPanel.GetComponentInChildren<TextMeshProUGUI>().text += highScore.ToString();
+					rocket2.SetActive(false);
+				}
+				rocket.SetActive(false);
 
-					highScoreText.gameObject.SetActive(false);
-					livesText.gameObject.SetActive(false);
-					rocket.SetActive(false);
-
-					int currentHighScore = PlayerPrefs.GetInt(HighScoreKey, 0);
-					if (highScore >= currentHighScore)
-					{
-						PlayerPrefs.SetInt(HighScoreKey, highScore);
-						PlayerPrefs.Save();
-						highScoreMessage.gameObject.SetActive(true);
-					}
+				int currentHighScore = PlayerPrefs.GetInt(HighScoreKey, 0);
+				if (highScore >= currentHighScore)
+				{
+					PlayerPrefs.SetInt(HighScoreKey, highScore);
+					PlayerPrefs.Save();
+					highScoreMessage.gameObject.SetActive(true);
 				}
 			}
 		}
