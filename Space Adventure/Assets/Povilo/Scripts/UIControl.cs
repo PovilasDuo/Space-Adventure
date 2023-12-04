@@ -115,4 +115,9 @@ public class UIControl : MonoBehaviour
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
+
+	public void BackToMainMenu()
+	{
+		SceneManager.LoadScene("MainMenu");
+	}
 }

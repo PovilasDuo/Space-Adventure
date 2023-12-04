@@ -69,6 +69,9 @@ public class PowerUpCollision : MonoBehaviour
 			textObject.transform.position = this.gameObject.transform.position;
 			this.gameObject.GetComponent<MeshRenderer>().enabled = false;
 			this.gameObject.GetComponent<BoxCollider>().enabled = false;
+			Proxy proxyAudio = new Proxy("AudioManager");
+			AudioSource audio = proxyAudio.GetObject().GetComponents<AudioSource>()[5];
+			audio.Play();
 			StartCoroutine(DisplayInfoMessage(textComponent, infoMessage));
 		}	
 	}
