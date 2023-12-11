@@ -100,7 +100,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5586480358222804954, guid: 2af46346fa53ab44bb5ab0edfe8d515d, type: 3}
 --- !u!82 &2115535155955965461
@@ -220,6 +220,8 @@ MonoBehaviour:
   projectileForce: 3
   particlesFire: {fileID: 2115535156221766588}
   lazer: {fileID: 2115535155955965461}
+  p1: 0
+  playerInput: {fileID: 0}
 --- !u!114 &2115535155955965463
 MonoBehaviour:
   m_ObjectHideFlags: 0

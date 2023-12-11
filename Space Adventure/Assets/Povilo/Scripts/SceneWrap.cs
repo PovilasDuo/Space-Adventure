@@ -32,12 +32,12 @@ public class SceneWrap : MonoBehaviour
 
 				if (viewportPosition.x < 0 || viewportPosition.x > 1)
 				{
-					float xValue = transform.position.x * -1;
+					float xValue = transform.position.x * -0.9f;
 					transform.position = new Vector3(xValue, transform.position.y, transform.position.z);
 				}
 				else if (viewportPosition.y < 0 || viewportPosition.y > 1)
 				{
-					float yValue = transform.position.y * -1;
+					float yValue = transform.position.y * -0.9f;
 					transform.position = new Vector3(transform.position.x, yValue, transform.position.z);
 				
 				}

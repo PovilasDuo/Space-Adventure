@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class RocketShipController : MonoBehaviour
 {
@@ -24,8 +25,10 @@ public class RocketShipController : MonoBehaviour
 	private KeyCode right = KeyCode.D;
 	private KeyCode fire = KeyCode.Space;
 
+	public PlayerInput playerInput;
 	private void Start()
 	{
+		playerInput = GetComponent<PlayerInput>();
 		if (!p1)
 		{
 			verticalAxis = "Vertical2";
@@ -68,14 +71,26 @@ public class RocketShipController : MonoBehaviour
 	private void Movement()
 	{
 		// Spaceship movement
-		if (Input.GetAxisRaw(verticalAxis) != 0) 
+		
+		if (playerInput.actions["Move"].ReadValue<Vector2>().y != 0)
 		{
 			moving = true;
 			float translation = Input.GetAxisRaw(verticalAxis) * speed;
 			translation *= Time.deltaTime;
 			transform.Translate(0, translation, 0, Space.Self);
 		}
-		else moving = false;
+		//if (Input.GetAxisRaw(verticalAxis) != 0) 
+		//{
+		//	moving = true;
+		//	float translation = Input.GetAxisRaw(verticalAxis) * speed;
+		//	translation *= Time.deltaTime;
+		//	transform.Translate(0, translation, 0, Space.Self);
+		//}
+		else
+		{
+			moving = false;
+		}
+
 
 		float scaleFactor = moving ? 0.4f : 0.2f; // Adjust the scale factor as needed
 		particlesFire.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
@@ -83,7 +98,8 @@ public class RocketShipController : MonoBehaviour
 		// Spaceship rotation
 		if (moving)
 		{
-			if (Input.GetAxisRaw(horizontalAxis) != 0)
+			//Debug.Log(playerInput.actions["Move"].ReadValue<Vector2>().x);
+			if (playerInput.actions["Move"].ReadValue<Vector2>().x != 0 && playerInput.actions["Move"].ReadValue<Vector2>().x != null)
 			{
 				if (Input.GetKey(left))
 				{
@@ -104,13 +120,13 @@ public class RocketShipController : MonoBehaviour
 			}
 			else
 			{
-				if (Input.GetKey(right))
+				if (Input.GetKey(left))
 				{
 					rotation = -1f;
 					rotation *= rotationSpeed * Time.deltaTime;
 					transform.Rotate(0, 0, rotation);
 				}
-				else if (Input.GetKey(left))
+				else if (Input.GetKey(right))
 				{
 					rotation = 1f;
 					rotation *= rotationSpeed * Time.deltaTime;

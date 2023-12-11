@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class UIControl : MonoBehaviour
 {
 	public GameObject pausePanel;
-	private bool paused;
+	private bool paused = false;
 
 	public TextMeshProUGUI highScoreText;
 	public int highScore;
@@ -19,12 +19,19 @@ public class UIControl : MonoBehaviour
 	public TextMeshProUGUI livesText;
 	public int lives;
 
+	public TextMeshProUGUI livesText2;
+	public int lives2;
+
 	public TextMeshProUGUI highScoreMessage;
 	private const string HighScoreKey = "HighScore";
+	public bool versus = false;
+
+	public TextMeshProUGUI GameOverText;
 
 	// Start is called before the first frame update
 	void Start()
     {
+		Time.timeScale = 1f;
 		pausePanel.SetActive(false);
 		paused = false;
 
@@ -33,13 +40,32 @@ public class UIControl : MonoBehaviour
 
 		Proxy proxy = new Proxy("Rocket");
 		lives = proxy.GetObject().GetComponent<RocketShipController>().health;
+		lives2 = 1;
+		//For versus
+		if (SceneManager.GetActiveScene().name == "MultiVersus")
+		{
+			Proxy proxy2 = new Proxy("Rocket2");
+			GameObject rocket2 = proxy2.GetObject();
+			lives2 = rocket2.GetComponent<RocketShipController>().health;
+			versus = true;
+		}
 	}
 
     // Update is called once per frame
     void Update()
     {
-		highScoreText.text = highScore.ToString();
-		livesText.text = lives.ToString();
+		if (versus)
+		{
+			highScoreText.gameObject.SetActive(false);
+			livesText.text = lives.ToString();
+			livesText2.text = lives2.ToString();
+		}
+		else
+		{
+			//livesText2.gameObject.SetActive(false);
+			highScoreText.text = highScore.ToString();
+			livesText.text = lives.ToString();
+		}
 		Pause();
 		GameOver();
 	}
@@ -57,6 +83,7 @@ public class UIControl : MonoBehaviour
 		}
 		else if (Input.GetKeyDown("escape") && !paused)
 		{
+			Debug.Log("whatthefuck");
 			Time.timeScale = 0f;
 			pausePanel.SetActive(true);
 			paused = true;
@@ -86,26 +113,44 @@ public class UIControl : MonoBehaviour
 			GameObject rocket = proxy.GetObject();
 			Proxy proxy2 = new Proxy("Rocket2");
 			GameObject rocket2 = proxy2.GetObject();
-			if (lives <= 0)
+			if (lives <= 0 || (lives2 <= 0 && rocket2 != null))
 			{
 				gameOver = true;
 				gameOverPanel.SetActive(true);
-				gameOverPanel.GetComponentInChildren<TextMeshProUGUI>().text += highScore.ToString();
-
-				highScoreText.gameObject.SetActive(false);
-				livesText.gameObject.SetActive(false);
-				if (rocket2 != null)
+				if (!versus)
 				{
-					rocket2.SetActive(false);
+					gameOverPanel.GetComponentInChildren<TextMeshProUGUI>().text += highScore.ToString();
+					int currentHighScore = PlayerPrefs.GetInt(HighScoreKey, 0);
+					if (highScore >= currentHighScore)
+					{
+						PlayerPrefs.SetInt(HighScoreKey, highScore);
+						PlayerPrefs.Save();
+						highScoreMessage.gameObject.SetActive(true);
+					}
+					highScoreText.gameObject.SetActive(false);
+					livesText.gameObject.SetActive(false);
+					//livesText2.gameObject.SetActive(false);
+					if (rocket2 != null)
+					{
+						rocket2.SetActive(false);
+					}
+					rocket.SetActive(false);
 				}
-				rocket.SetActive(false);
-
-				int currentHighScore = PlayerPrefs.GetInt(HighScoreKey, 0);
-				if (highScore >= currentHighScore)
+				else
 				{
-					PlayerPrefs.SetInt(HighScoreKey, highScore);
-					PlayerPrefs.Save();
-					highScoreMessage.gameObject.SetActive(true);
+					if (lives >= 0 && lives2 <= 0)
+					{
+						rocket2.SetActive(false);
+						GameOverText.text = "GAME OVER\nPLAYER 1 WINS!";
+					}
+					else
+					{
+						rocket.SetActive(false);
+						GameOverText.text = "GAME OVER\nPLAYER 2 WINS!";
+					}
+					highScoreText.gameObject.SetActive(false);
+					livesText.gameObject.SetActive(false);
+					livesText2.gameObject.SetActive(false);
 				}
 			}
 		}

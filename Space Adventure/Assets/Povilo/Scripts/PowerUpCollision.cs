@@ -16,8 +16,25 @@ public class PowerUpCollision : MonoBehaviour
 			switch (powerUpPicker)
 			{
 				case 1:
-					Player.GetComponent<RocketShipController>().health++;
-					GameObject.FindGameObjectWithTag("GameManager").GetComponent<UIControl>().lives++;
+					Proxy proxyManager = new Proxy("GameManager");
+					UIControl uIControl = proxyManager.GetObject().GetComponent<UIControl>();
+					if (uIControl.versus)
+					{
+						Player.GetComponent<RocketShipController>().health++;
+						if (collider.collider.gameObject.layer == 9)
+						{
+							uIControl.lives2++;
+						}
+						if (collider.collider.gameObject.layer == 3)
+						{
+							uIControl.lives++;
+						}
+					}
+					else
+					{
+						Player.GetComponent<RocketShipController>().health++;
+						GameObject.FindGameObjectWithTag("GameManager").GetComponent<UIControl>().lives++;
+					}
 					infoMessage = "Health Increased!";
 					break;
 				case 2:

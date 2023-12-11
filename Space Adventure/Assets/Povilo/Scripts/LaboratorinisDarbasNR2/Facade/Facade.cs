@@ -58,8 +58,24 @@ public class Facade : Object
 		//Collision with the Player (Rocket)
 		else if (collision.collider.tag == "Player")
 		{
-			collision.collider.GetComponent<RocketShipController>().health--;
-			GameObject.FindGameObjectWithTag("GameManager").GetComponent<UIControl>().lives--;
+			UIControl uIControl = proxyManager.GetObject().GetComponent<UIControl>();
+			if (uIControl.versus)
+			{
+				collision.collider.GetComponent<RocketShipController>().health--;
+				if (collision.collider.gameObject.layer == 9)
+				{
+					uIControl.lives2--;
+				}
+				if (collision.collider.gameObject.layer == 3)
+				{
+					uIControl.lives--;
+				}
+			}
+			else
+			{
+				collision.collider.GetComponent<RocketShipController>().health--;
+				uIControl.lives--;
+			}
 			AsteroidDestruction(audioList[2], new GameObject(), 0);
 		}
 	}
