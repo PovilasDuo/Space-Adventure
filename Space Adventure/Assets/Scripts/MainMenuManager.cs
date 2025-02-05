@@ -77,7 +77,7 @@ public class MainMenuManager : MonoBehaviour
 	public void Back()
 	{
 		mainMenuPanel.SetActive(true);
-		if (settingsPanel.active || gameModePanel.active)
+		if (settingsPanel.activeSelf || gameModePanel.activeSelf)
 		{
 			settingsPanel.SetActive(false);
 			gameModePanel.SetActive(false);

@@ -70,8 +70,6 @@ public class RocketShipController : MonoBehaviour
 	/// </summary>
 	private void Movement()
 	{
-		// Spaceship movement
-		
 		if (playerInput.actions["Move"].ReadValue<Vector2>().y != 0)
 		{
 			moving = true;
@@ -79,27 +77,18 @@ public class RocketShipController : MonoBehaviour
 			translation *= Time.deltaTime;
 			transform.Translate(0, translation, 0, Space.Self);
 		}
-		//if (Input.GetAxisRaw(verticalAxis) != 0) 
-		//{
-		//	moving = true;
-		//	float translation = Input.GetAxisRaw(verticalAxis) * speed;
-		//	translation *= Time.deltaTime;
-		//	transform.Translate(0, translation, 0, Space.Self);
-		//}
 		else
 		{
 			moving = false;
 		}
 
 
-		float scaleFactor = moving ? 0.4f : 0.2f; // Adjust the scale factor as needed
+		float scaleFactor = moving ? 0.4f : 0.2f;
 		particlesFire.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
 
-		// Spaceship rotation
 		if (moving)
 		{
-			//Debug.Log(playerInput.actions["Move"].ReadValue<Vector2>().x);
-			if (playerInput.actions["Move"].ReadValue<Vector2>().x != 0 && playerInput.actions["Move"].ReadValue<Vector2>().x != null)
+			if (playerInput.actions["Move"].ReadValue<Vector2>().x != 0)
 			{
 				if (Input.GetKey(left))
 				{

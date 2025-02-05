@@ -93,7 +93,7 @@ public class Facade : Object
 		{
 			GameObject asteroid = Instantiate(asteroidList[Random.Range(0, asteroidList.Count - 1)], mainObject.transform.position, Quaternion.identity);
 			asteroid.transform.localScale = new Vector3(asteroidSize, asteroidSize, asteroidSize);
-			asteroid.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-asteroidVelocity, asteroidVelocity), Random.Range(-asteroidVelocity, asteroidVelocity), 0);
+			asteroid.GetComponent<Rigidbody>().linearVelocity = new Vector3(Random.Range(-asteroidVelocity, asteroidVelocity), Random.Range(-asteroidVelocity, asteroidVelocity), 0);
 			asteroid.GetComponent<SceneWrap>().collisionCount = 0;
 			asteroid.GetComponent<SceneWrap>().enabled = true;
 
