@@ -1,0 +1,150 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/BoidManagerStyles.uss?fileID=7433441132597879392&amp;guid=888934e00c46f5d478ff2d8a4e61961c&amp;type=3#BoidManagerStyles" />
+    
+    <engine:ScrollView name="boidSettingsScroll" class="root" mode="Vertical" flex-grow="1">
+        <engine:VisualElement name="scrollContent">
+        
+            <engine:Label text="Choose a flock" class="header" />
+            <engine:VisualElement name="button-container" class="button-container">
+                <engine:Button name="flock1" text="1" />
+                <engine:Button name="flock2" text="2" />
+                <engine:Button name="flock3" text="3" />
+                <engine:Button name="flock4" text="4" />
+                <engine:Button name="flock5" text="5" />
+                <engine:Button name="flock6" text="6" />
+                <engine:Button name="flock7" text="7" />
+                <engine:Button name="flock8" text="8" />
+                <engine:Button name="flock9" text="9" />
+                <engine:Button name="flock10" text="10" class="last-button" />
+            </engine:VisualElement>
+            <engine:Button name="applyToAll" text="APPLY TO ALL" />
+
+            <engine:Label text="Boid Settings" class="header" />
+            <engine:Toggle name="manageBoids" label="Manage Boids" />
+
+            <engine:Label text="Flock Settings" class="header" />
+            <engine:VisualElement class="slider-container">
+                <engine:SliderInt name="flockID" label="Flock ID" lowValue="0" highValue="9" />
+                <engine:Label name="flockIDValue" text="0" class="slider-value" />
+            </engine:VisualElement>
+
+            <engine:Label text="Vision Settings" class="header" />
+            <engine:VisualElement class="slider-container">
+                <engine:SliderInt name="visionRadius" label="Vision Radius" lowValue="1" highValue="50" />
+                <engine:Label name="visionRadiusValue" text="1" class="slider-value" />
+            </engine:VisualElement>
+
+            <engine:VisualElement class="slider-container">
+                <engine:SliderInt name="visionAngle" label="Vision Angle" lowValue="1" highValue="180" />
+                <engine:Label name="visionAngleValue" text="1" class="slider-value" />
+            </engine:VisualElement>
+
+            <engine:Label text="Movement Settings" class="header" />
+            <engine:VisualElement class="slider-container">
+                <engine:SliderInt name="speed" label="Speed" lowValue="0" highValue="20" />
+                <engine:Label name="speedValue" text="0" class="slider-value" />
+            </engine:VisualElement>
+
+            <engine:VisualElement class="slider-container">
+                <engine:Slider name="smoothTime" label="Smooth Time" lowValue="0" highValue="0.3" />
+                <engine:Label name="smoothTimeValue" text="0.00" class="slider-value" />
+            </engine:VisualElement>
+            
+            <engine:Label text="Behavior Weights" class="header" />
+            <engine:VisualElement class="slider-container">
+                <engine:Slider name="cohesionWeight" label="Cohesion Weight" lowValue="0" highValue="5" />
+                <engine:Label name="cohesionWeightValue" text="0.00" class="slider-value" />
+            </engine:VisualElement>
+
+            <engine:VisualElement class="slider-container">
+                <engine:Slider name="alignmentWeight" label="Alignment Weight" lowValue="0" highValue="5" />
+                <engine:Label name="alignmentWeightValue" text="0.00" class="slider-value" />
+            </engine:VisualElement>
+
+            <engine:VisualElement class="slider-container">
+                <engine:Slider name="separationWeight" label="Separation Weight" lowValue="0" highValue="5" />
+                <engine:Label name="separationWeightValue" text="0.00" class="slider-value" />
+            </engine:VisualElement>
+
+            <engine:VisualElement class="slider-container">
+                <engine:SliderInt name="leaderFollowWeight" label="Leader Follow Weight" lowValue="0" highValue="10" />
+                <engine:Label name="leaderFollowWeightValue" text="0.00" class="slider-value" />
+            </engine:VisualElement>
+
+            <engine:VisualElement class="slider-container">
+                <engine:SliderInt name="avoidanceWeight" label="Avoidance Weight" lowValue="0" highValue="10" />
+                <engine:Label name="avoidanceWeightValue" text="0" class="slider-value" />
+            </engine:VisualElement>
+
+            <engine:VisualElement class="slider-container">
+                <engine:Slider name="lineFormationWeight" label="Line Formation Weight" lowValue="0" highValue="10" />
+                <engine:Label name="lineFormationWeightValue" text="0.00" class="slider-value" />
+            </engine:VisualElement>
+
+            <engine:VisualElement class="slider-container">
+                <engine:SliderInt name="enemyInteractionWeight" label="Enemy Interaction Weight" lowValue="0" highValue="10" />
+                <engine:Label name="enemyInteractionWeightValue" text="0" class="slider-value" />
+            </engine:VisualElement>
+
+            <engine:Label text="Behavioral Settings" class="header" />
+            <engine:Toggle name="isAggressive" label="Aggressive to enemies?" />
+            <engine:Toggle name="interactsWithEnemies" label="Interacts with Enemies?" />
+
+            <engine:Label text="Stuck Detection" class="header" />
+            <engine:VisualElement class="slider-container">
+                <engine:Slider name="stuckThreshold" label="Stuck Threshold" lowValue="0.01" highValue="1" />
+                <engine:Label name="stuckThresholdValue" text="0.01" class="slider-value" />
+            </engine:VisualElement>
+
+            <engine:VisualElement class="slider-container">
+                <engine:Slider name="maxStuckTime" label="Max Stuck Time" lowValue="0.1" highValue="5" />
+                <engine:Label name="maxStuckTimeValue" text="0.1" class="slider-value" />
+            </engine:VisualElement>
+
+            <engine:Label text="Rendering" class="header" />
+            <engine:VisualElement class="slider-container">
+                <engine:SliderInt name="lineSegments" label="Line Segments" lowValue="6" highValue="64" />
+                <engine:Label name="lineSegmentsValue" text="6" class="slider-value" />
+            </engine:VisualElement>
+
+            <engine:Label text="Physics" class="header" />
+            <engine:VisualElement class="slider-container">
+                <engine:Slider name="rayCastCooldown" label="Ray Cast Cooldown" lowValue="0" highValue="1" />
+                <engine:Label name="rayCastCooldownValue" text="0.00" class="slider-value" />
+            </engine:VisualElement>
+
+            <engine:Label text="Visualization" class="header" />
+            <engine:Toggle name="displayVisionRange" label="Display Vision Range" />
+            <engine:Toggle name="visualizeColors" label="Behavior-based color" />
+            <engine:Toggle name="useTrail" label="Use Trail" />
+            <engine:Toggle name="setBoidColorBasedOnFlockId" label="Flock ID based color" />
+
+            <engine:Label text="Other Settings" class="header" />
+            <engine:Toggle name="useScreenWarp" label="Use Screen Warp" />
+            <engine:Toggle name="fixZPosition" label="Fix Z Position" />
+            <engine:Toggle name="boundToArea" label="Bound to Area" />
+
+            <engine:VisualElement class="slider-container">
+                <engine:Slider name="minX" label="Min X" lowValue="-100" highValue="100" />
+                <engine:Label name="minXValue" text="100" class="slider-value" />
+            </engine:VisualElement>
+
+            <engine:VisualElement class="slider-container">
+                <engine:Slider name="maxX" label="Max X" lowValue="-100" highValue="100" />
+                <engine:Label name="maxXValue" text="100" class="slider-value" />
+            </engine:VisualElement>
+            
+            <engine:VisualElement class="slider-container">
+                <engine:Slider name="minY" label="Min Y" lowValue="-100" highValue="100" />
+                <engine:Label name="minYValue" text="-100" class="slider-value" />
+            </engine:VisualElement>
+            
+            <engine:VisualElement class="slider-container">
+                <engine:Slider name="maxY" label="Max Y" lowValue="-100" highValue="100" />
+                <engine:Label name="maxYValue" text="100" class="slider-value" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:ScrollView>
+</engine:UXML>
+
+

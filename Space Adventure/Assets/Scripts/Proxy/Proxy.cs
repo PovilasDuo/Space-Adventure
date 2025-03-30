@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class Proxy : Subject
@@ -36,9 +33,8 @@ public class Proxy : Subject
 
 			return desiredObject;
 		}
-		catch (Exception ex)
+		catch
 		{
-			//Debug.LogError("Exception while finding object: " + ex.Message);
 			return null;
 		}
 	}
