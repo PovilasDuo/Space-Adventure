@@ -61,9 +61,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.35f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Boids\BoidSpawner.cs" />
     <Compile Include="Assets\Scripts\StartSiren.cs" />
-    <Compile Include="Assets\Scripts\Boids\Boid2d.cs" />
     <Compile Include="Assets\Scripts\Factory\AsteroidSpawner.cs" />
     <Compile Include="Assets\Scripts\MainMenuManager.cs" />
     <Compile Include="Assets\Scripts\BulletCollision.cs" />
@@ -77,7 +75,6 @@
     <Compile Include="Assets\Scripts\Proxy\Proxy.cs" />
     <Compile Include="Assets\Scripts\AsteroidDestroyer.cs" />
     <Compile Include="Assets\Scripts\SceneWrap.cs" />
-    <Compile Include="Assets\Scripts\Boids\Boid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

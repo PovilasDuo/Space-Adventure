@@ -20,7 +20,6 @@ public class RocketShipController : MonoBehaviour
 
 	public bool p1;
 	private string verticalAxis = "Vertical";
-	private string horizontalAxis = "Horizontal";
 	private KeyCode left = KeyCode.A;
 	private KeyCode right = KeyCode.D;
 	private KeyCode fire = KeyCode.Space;
@@ -32,7 +31,6 @@ public class RocketShipController : MonoBehaviour
 		if (!p1)
 		{
 			verticalAxis = "Vertical2";
-			horizontalAxis = "Horizontal2";
 			left = KeyCode.LeftArrow;
 			right = KeyCode.RightArrow;
 			fire = KeyCode.Keypad0;
