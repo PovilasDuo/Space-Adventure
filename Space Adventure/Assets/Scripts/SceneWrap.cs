@@ -27,26 +27,27 @@ public class SceneWrap : MonoBehaviour
 		if (!isVisible)
 		{
 			Vector3 viewportPosition = mainCamera.WorldToViewportPoint(transform.position);
-			if (viewportPosition.x < 0 || viewportPosition.x > 1 || viewportPosition.y < 0 || viewportPosition.y > 1)
-			{
+            if (viewportPosition.x < 0 || viewportPosition.x > 1 || viewportPosition.y < 0 || viewportPosition.y > 1)
+            {
+                if (viewportPosition.x < 0)
+                {
+                    transform.position = new Vector3(mainCamera.ViewportToWorldPoint(new Vector3(1, viewportPosition.y, viewportPosition.z)).x, transform.position.y, transform.position.z);
+                }
+                else if (viewportPosition.x > 1)
+                {
+                    transform.position = new Vector3(mainCamera.ViewportToWorldPoint(new Vector3(0, viewportPosition.y, viewportPosition.z)).x, transform.position.y, transform.position.z);
+                }
 
-				if (viewportPosition.x < 0 || viewportPosition.x > 1)
-				{
-					float xValue = transform.position.x * -0.9f;
-					transform.position = new Vector3(xValue, transform.position.y, transform.position.z);
-				}
-				else if (viewportPosition.y < 0 || viewportPosition.y > 1)
-				{
-					float yValue = transform.position.y * -0.9f;
-					transform.position = new Vector3(transform.position.x, yValue, transform.position.z);
-				
-				}
-				if (this.tag != "Player")
-				{
-					collisionCount++;
-				}
-			}
-		}
+                if (viewportPosition.y < 0)
+                {
+                    transform.position = new Vector3(transform.position.x, mainCamera.ViewportToWorldPoint(new Vector3(viewportPosition.x, 1, viewportPosition.z)).y, transform.position.z);
+                }
+                else if (viewportPosition.y > 1)
+                {
+                    transform.position = new Vector3(transform.position.x, mainCamera.ViewportToWorldPoint(new Vector3(viewportPosition.x, 0, viewportPosition.z)).y, transform.position.z);
+                }
+            }
+        }
 	}
 
 	/// <summary>

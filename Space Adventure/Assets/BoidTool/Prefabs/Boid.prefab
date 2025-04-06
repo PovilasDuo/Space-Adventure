@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a558464599f3f540914452c0a7013b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 8385964379121843467, guid: 4d5f50f2a5a22a64b9ebe5b8450f9567, type: 3}
+  projectilePrefab: {fileID: 6874242401673268059, guid: 4d5f50f2a5a22a64b9ebe5b8450f9567, type: 3}
   projectileForce: 30
   spawnDistance: 1.5
   delay: 0.5
