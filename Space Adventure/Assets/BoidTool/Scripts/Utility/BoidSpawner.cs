@@ -31,7 +31,7 @@ public class BoidSpawner : MonoBehaviour
         {
             SpawnGameObject(obstaclePrefab);
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Escape))
         {
             DeleteEverything();
         }
@@ -45,6 +45,10 @@ public class BoidSpawner : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Gets the mouse position in world coordinates.
+    /// </summary>
+    /// <returns>The mouse position in world coordinates</returns>
     private Vector3 GetMousePosition()
     {
         Vector3 mousePosition = Input.mousePosition;
@@ -54,22 +58,37 @@ public class BoidSpawner : MonoBehaviour
         return desiredPosition;
     }
 
+    /// <summary>
+    /// Spawns a game object at the mouse position.
+    /// </summary>
+    /// <param name="gameObject">GameObject to be spawned</param>
+    /// <returns>The spawned GameObject</returns>
     private GameObject SpawnGameObject(GameObject gameObject)
     {
         return Instantiate(gameObject, GetMousePosition(), Quaternion.identity);
     }
 
+    /// <summary>
+    /// Deletes all boids and obstacles in the scene.
+    /// </summary>
     private void DeleteEverything()
     {
         DeleteBoids();
         DeleteGameObjectByTag("Obstacle");
     }
 
+    /// <summary>
+    /// Deletes all boids in the scene.
+    /// </summary>
     private void DeleteBoids()
     {
         boidManager.RemoveAllFlocksOfBoids();
     }
 
+    /// <summary>
+    /// Deletes all game objects with the specified tag.
+    /// </summary>
+    /// <param name="tag">The specified tag</param>
     private void DeleteGameObjectByTag(string tag)
     {
         List<GameObject> gameObjects = GameObject.FindGameObjectsWithTag(tag).ToList();
@@ -79,31 +98,54 @@ public class BoidSpawner : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Gets the boid manager.
+    /// </summary>
+    /// <returns>BoidManager that is assigned to the BoidSpawner</returns>
     public BoidManager GetBoidManager()
     {
         return boidManager;
     }
 
+    /// <summary>
+    /// Sets the boid manager.
+    /// </summary>
+    /// <param name="boidManager">BoidManager to be set</param>
     public void SetBoidManager(BoidManager boidManager)
     {
         this.boidManager = boidManager;
     }
 
+    /// <summary>
+    /// Sets the boid prefab.
+    /// </summary>
+    /// <param name="boidPrefab">Boid prefab to be set</param>
     public void SetBoidPrefab(GameObject boidPrefab)
     {
         this.boidPrefab = boidPrefab;
     }
 
+    /// <summary>
+    /// Sets the leader prefab.
+    /// </summary>
+    /// <param name="leaderPrefab">Leader prefab to be set</param>
     public void SetLeaderPrefab(GameObject leaderPrefab)
     {
         this.leaderPrefab = leaderPrefab;
     }
 
+    /// <summary>
+    /// Sets the obstacle prefab.
+    /// </summary>
+    /// <param name="obstaclePrefab">Obstacle prefab to be set</param>
     public void SetObstaclePrefab(GameObject obstaclePrefab)
     {
         this.obstaclePrefab = obstaclePrefab;
     }
 
+    /// <summary>
+    /// Creates a new Boid Spawner instance in the scene.
+    /// </summary>
     [MenuItem("GameObject/Boid System/Create New Boid Spawner", false, 10)]
     private static void CreateNewSpawnerInstance()
     {

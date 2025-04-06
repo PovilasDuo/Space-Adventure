@@ -14,6 +14,9 @@ public class ShootEnemy : MonoBehaviour, IEnemyShooter
     public float delay = 1.0f;
     public bool isShooting = false;
 
+    /// <summary>
+    /// Method to fire a projectile.
+    /// </summary>
     public void FireProjectile()
     {
         if (!isShooting)
@@ -22,6 +25,9 @@ public class ShootEnemy : MonoBehaviour, IEnemyShooter
         }
     }
 
+    /// <summary>
+    /// Coroutine to handle the delay between shots.
+    /// </summary>
     private IEnumerator DelayShooting()
     {
         isShooting = true;
@@ -30,6 +36,9 @@ public class ShootEnemy : MonoBehaviour, IEnemyShooter
         isShooting = false;
     }
 
+    /// <summary>
+    /// Method to create and launch a projectile.
+    /// </summary>
     private void CreateProjectile()
     {
         Vector3 spawnPosition = transform.position + (transform.up * spawnDistance);

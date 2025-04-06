@@ -26,11 +26,19 @@ public class BoidManager : MonoBehaviour
         RegisterBoidsOnStart();
     }
 
+    /// <summary>
+    /// Returns the QuadTree instance.
+    /// </summary>
+    /// <returns>QuadTree instance assigned to the BoidManager</returns>
     public QuadTree GetQuadTree()
     {
         return quadTree;
     }
 
+    /// <summary>
+    /// Starts a coroutine to update the boids at a specified interval.
+    /// </summary>
+    /// <param name="updateInterval">Update interval for the boid management</param>
     private IEnumerator UpdateBoidsRoutine(float updateInterval)
     {
         while (boidManagerSettings.manageBoids)
@@ -43,6 +51,9 @@ public class BoidManager : MonoBehaviour
         StartCoroutine(UpdateBoidsRoutine(updateInterval));
     }
 
+    /// <summary>
+    /// Updates the boids in the scene.
+    /// </summary>
     private void UpdateBoids()
     {
         foreach (var flock in flocks.Values)
@@ -55,6 +66,10 @@ public class BoidManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates the flock of boids by querying the QuadTree for nearby boids.
+    /// </summary>
+    /// <param name="flock">Flock to be updated</param>
     private void UpdateFlock(HashSet<Boid> flock)
     {
         foreach (Boid boid in flock)
@@ -66,6 +81,11 @@ public class BoidManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Registers a boid to a specific flock.
+    /// </summary>
+    /// <param name="boid">Boid to be registered</param>
+    /// <param name="flockID">The flock to which the boid will be registered</param>
     public void RegisterBoid(Boid boid, int flockID)
     {
         if (!flocks.ContainsKey(flockID))
@@ -75,6 +95,9 @@ public class BoidManager : MonoBehaviour
         flocks[flockID].Add(boid);
     }
 
+    /// <summary>
+    /// Removes all flocks of boids from the scene.
+    /// </summary>
     public void RemoveAllFlocksOfBoids()
     {
         List<int> flockKeys = new List<int>(flocks.Keys);
@@ -86,6 +109,10 @@ public class BoidManager : MonoBehaviour
         EnsureDeletion();
     }
 
+    /// <summary>
+    /// Removes a specific flock of boids from the scene.
+    /// </summary>
+    /// <param name="flockID">The flock to be removed</param>
     public void RemoveFlockOfBoids(int flockID)
     {
         if (flocks.ContainsKey(flockID))
@@ -95,6 +122,10 @@ public class BoidManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Destroys a batch of boids in the scene.
+    /// </summary>
+    /// <param name="boids">Flock of boids to be destroyed</param>
     private IEnumerator DestroyBoidsInBatch(HashSet<Boid> boids)
     {
         int batchSize = 32;
@@ -116,6 +147,9 @@ public class BoidManager : MonoBehaviour
         boids.Clear();
     }
 
+    /// <summary>
+    /// Ensures that all boids are deleted from the scene.
+    /// </summary>
     private void EnsureDeletion()
     {
         GameObject[] boids = GameObject.FindGameObjectsWithTag("Boid");
@@ -131,6 +165,13 @@ public class BoidManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Spawns a boid at a specified position with the given prefab and flock ID.
+    /// </summary>
+    /// <param name="position">Specified position</param>
+    /// <param name="boidPrfab">The prefab of the boid to be spawned</param>
+    /// <param name="flockID">The flock id which will be assigned to the boid</param>
+    /// <returns>The spawned boid</returns>
     public GameObject SpawnBoid(Vector3 position, GameObject boidPrfab, int flockID)
     {
         GameObject boid = regularBoidFactory.CreateBoid(position, boidPrfab, boidSettings);
@@ -141,6 +182,13 @@ public class BoidManager : MonoBehaviour
         return boid;
     }
 
+    /// <summary>
+    /// Spawns a leader boid at a specified position with the given prefab and flock ID.
+    /// </summary>
+    /// <param name="position">Specified position</param>
+    /// <param name="boidPrfab">The prefab of the boid to be spawned</param>
+    /// <param name="flockID">The flock id which will be assigned to the boid</param>
+    /// <returns>The spawned boid</returns>
     public GameObject SpawnLeader(Vector3 position, GameObject boidPrfab, int flockID)
     {
         GameObject boidLeader = SpawnBoid(position, boidPrfab, flockID);
@@ -148,6 +196,11 @@ public class BoidManager : MonoBehaviour
         return boidLeader;
     }
 
+    /// <summary>
+    /// Updates the leader of a flock by setting the leader for all boids in the flock.
+    /// </summary>
+    /// <param name="flockID">Flock's id</param>
+    /// <param name="leaderBoid">The leader boid to be aassigned to the flock</param>
     private void UpdateFlockLeader(int flockID, GameObject leaderBoid)
     {
         if (flocks.ContainsKey(flockID))
@@ -162,6 +215,10 @@ public class BoidManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Destroys a boid and removes it from the QuadTree and its flock.
+    /// </summary>
+    /// <param name="boid">The boid to be destroyed</param>
     public void DestroyBoid(Boid boid)
     {
         if (boid == null) return;
@@ -179,21 +236,25 @@ public class BoidManager : MonoBehaviour
         Destroy(boid.gameObject);
     }
 
+    /// <summary>
+    /// Returns the boid settings.
+    /// </summary>
     public BoidSettings GetBoidSettings()
     {
         return boidSettings;
     }
 
+    /// <summary>
+    /// Returns the boid manager settings.
+    /// </summary>
     public BoidManagerSettings GetBoidManagerSettings()
     {
         return boidManagerSettings;
     }
 
-    private void SetLeader(Transform newLeader)
-    {
-        boidSettings.leader = newLeader;
-    }
-
+    /// <summary>
+    /// Updates the properties of all boids in the scene.
+    /// </summary>
     public void UpdatetFlockSettings()
     {
         foreach (HashSet<Boid> flock in flocks.Values)
@@ -205,6 +266,11 @@ public class BoidManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Enables or disables the vision range of all boids in a specific flock.
+    /// </summary>
+    /// <param name="flockID">The flock for which to apply this</param>
+    /// <param name="enabled">To enable or to disable the vision range</param>
     public void EnableFlockVisionRange(int flockID, bool enabled)
     {
         foreach (Boid boid in flocks[flockID])
@@ -213,6 +279,9 @@ public class BoidManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Creates a new BoidManager instance in the scene.
+    /// </summary>
     [MenuItem("GameObject/Boid System/Create New Boid Manager", false, 10)]
     private static void CreateNewManagerInstance()
     {
@@ -253,6 +322,9 @@ public class BoidManager : MonoBehaviour
         Selection.activeObject = newBoidManager;
     }
 
+    /// <summary>
+    /// Registers all boids in the scene at the start.
+    /// </summary>
     private void RegisterBoidsOnStart()
     {
         Boid[] boids = FindObjectsByType<Boid>(FindObjectsSortMode.None);

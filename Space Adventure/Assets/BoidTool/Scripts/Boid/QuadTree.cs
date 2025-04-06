@@ -19,6 +19,12 @@ public class QuadTree
         divided = false;
     }
 
+    /// <summary>
+    /// Singleton instance of the QuadTree.
+    /// </summary>
+    /// <param name="boundary">The boundary for the quad tree</param>
+    /// <param name="capacity">The capacity for the boids inside the quad tree</param>
+    /// <returns>The quad tree instance</returns>
     public static QuadTree GetInstance(Rect boundary, int capacity)
     {
         if (instance == null)
@@ -28,16 +34,10 @@ public class QuadTree
         return instance;
     }
 
-    public static QuadTree GetInstance()
-    {
-        if (instance == null)
-        {
-            Debug.LogError("QuadTree instance has not been initialized. Call GetInstance(Rect boundary, int capacity) first.");
-        }
-        return instance;
-    }
-
-
+    /// <summary>
+    /// Inserts a boid into the quad tree.
+    /// </summary>
+    /// <param name="boid">The boid to be inserted</param>
     public void Insert(Boid boid)
     {
         if (boid == null)
@@ -67,6 +67,9 @@ public class QuadTree
         }
     }
 
+    /// <summary>
+    /// Subdivides the quad tree into four quadrants.
+    /// </summary>
     private void Subdivide()
     {
         float x = boundary.x;
@@ -81,6 +84,12 @@ public class QuadTree
         divided = true;
     }
 
+    /// <summary>
+    /// Queries the quad tree for boids within a specified range of a querying boid.
+    /// </summary>
+    /// <param name="queryingBoid">The boid who is querying</param>
+    /// <param name="range">The boid's vision range</param>
+    /// <returns></returns>
     public HashSet<Boid> Query(Boid queryingBoid, float range)
     {
         HashSet<Boid> found = new HashSet<Boid>();
@@ -117,6 +126,9 @@ public class QuadTree
         return found;
     }
 
+    /// <summary>
+    /// Clears the quad tree of all boids.
+    /// </summary>
     public void Clear()
     {
         boids.Clear();
@@ -131,6 +143,10 @@ public class QuadTree
         }
     }
 
+    /// <summary>
+    /// Removes a boid from the quad tree.
+    /// </summary>
+    /// <param name="boid">The boid to be removed</param>
     public void Remove(Boid boid)
     {
         boids.Remove(boid);

@@ -27,6 +27,8 @@ public class AdhocBoidSpawner : MonoBehaviour
     public float spawnSpeed = 2f;
     public float spawnDelay = 1.0f;
     private float nextSpawnTime = 0.0f;
+    public int minBoidsSpawned = 1;
+    public int maxBoidsSpawned = 10;
 
     public bool gameStart = false;
 
@@ -55,7 +57,11 @@ public class AdhocBoidSpawner : MonoBehaviour
     {
         if (gameStart)
         {
-            GameObject boid = adhocBoidFactory.CreateObstacle(Camera.main);
+            int boidsToBeSpawned = Random.Range(minBoidsSpawned, maxBoidsSpawned);
+            for (int i = 0; i < boidsToBeSpawned; i++)
+            {
+                adhocBoidFactory.CreateObstacle(Camera.main);
+            }
             yield return new WaitForSeconds(spawnSpeed);
         }
     }

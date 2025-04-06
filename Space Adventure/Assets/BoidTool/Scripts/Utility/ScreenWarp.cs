@@ -46,12 +46,18 @@ public class ScreenWarp : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks if the object is within the camera's view frustum.
+    /// </summary>
     void CheckVisibility()
     {
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(mainCamera);
         isVisible = GeometryUtility.TestPlanesAABB(planes, GetComponent<Collider>().bounds);
     }
 
+    /// <summary>
+    /// Clears the trail of the object if it has a TrailRenderer component.
+    /// </summary>
     void ClearTrail()
     {
         if (trailRenderer != null && trailRenderer.enabled)

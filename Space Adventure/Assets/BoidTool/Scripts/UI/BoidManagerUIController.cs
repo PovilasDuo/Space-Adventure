@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -8,7 +7,6 @@ using UnityEngine.UIElements;
 public class BoidManagerUIController : MonoBehaviour
 {
     public UIDocument uiDocument; 
-
     private VisualElement root;
     private SliderInt flockIDSlider;
     private Label flockIDValue;
@@ -93,6 +91,9 @@ public class BoidManagerUIController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets up the UI by initializing values, adding listeners, and setting up min/max values.
+    /// </summary>
     private void SetUpUI()
     {
         SetBoidRelatedValues();
@@ -102,6 +103,9 @@ public class BoidManagerUIController : MonoBehaviour
         DeactivateButtonsBasedOnBoidManagers();
     }
 
+    /// <summary>
+    /// Sets the boid related values by finding the BoidSpawner and BoidManagers in the scene.
+    /// </summary>
     private void SetBoidRelatedValues()
     {
         boidSpawner = GameObject.FindAnyObjectByType<BoidSpawner>();
@@ -128,6 +132,9 @@ public class BoidManagerUIController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Shows the UI by setting its display style to Flex and disabling the spawner.
+    /// </summary>
     private void ShowUI()
     {
         VisualElement root = uiDocument.rootVisualElement;
@@ -136,6 +143,9 @@ public class BoidManagerUIController : MonoBehaviour
         DisableSpawner(false);
     }
 
+    /// <summary>
+    /// Hides the UI by setting its display style to None and disabling the spawner.
+    /// </summary>
     private void HideUI()
     {
         VisualElement root = uiDocument.rootVisualElement;
@@ -144,11 +154,18 @@ public class BoidManagerUIController : MonoBehaviour
         DisableSpawner(true);
     }
 
+    /// <summary>
+    /// Disables the spawner by enabling or disabling it based on the active parameter.
+    /// </summary>
+    /// <param name="active">To disable or enable</param>
     private void DisableSpawner(bool active)
     {
         boidSpawner.enabled = active;
     }
 
+    /// <summary>
+    /// Gets the values from the UI elements and assigns them to the corresponding variables.
+    /// </summary>
     private void GetValues()
     {
         root = uiDocument.rootVisualElement;
@@ -209,6 +226,9 @@ public class BoidManagerUIController : MonoBehaviour
         applyToAll = root.Q<Button>("applyToAll");
     }
 
+    /// <summary>
+    /// Adds minimum and maximum values to the sliders.
+    /// </summary>
     private void AddMinMaxValues()
     {
         flockIDSlider.lowValue = 0; flockIDSlider.highValue = 9;
@@ -232,6 +252,9 @@ public class BoidManagerUIController : MonoBehaviour
         maxYSlider.lowValue = -100; maxYSlider.highValue = 100;
     }
 
+    /// <summary>
+    /// Adds listeners to the UI elements to update the settings when their values change.
+    /// </summary>
     private void AddListeners()
     {
         flockIDSlider.RegisterValueChangedCallback(evt =>
@@ -352,6 +375,9 @@ public class BoidManagerUIController : MonoBehaviour
         });
     }
 
+    /// <summary>
+    /// Adds listeners to the buttons in the button container.
+    /// </summary>
     private void AddButtonListeners()
     {
         for (int i = 0; i < buttons.Count; i++)
@@ -361,11 +387,19 @@ public class BoidManagerUIController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Creates a button click handler for the buttons in the button container.
+    /// </summary>
+    /// <param name="index">Index of the button</param>
+    /// <returns>The click event for the button</returns>
     private EventCallback<ClickEvent> CreateButtonClickHandler(int index)
     {
         return evt => { SetCurrentBoidManager(boidManagers[index]); };
     }
 
+    /// <summary>
+    /// Sets the initial text values for the UI elements based on the settings.
+    /// </summary>
     private void SetInitialTextValues()
     {
         flockIDSlider.value = settings.flockID;
@@ -419,11 +453,18 @@ public class BoidManagerUIController : MonoBehaviour
         boundToAreaToggle.value = settings.boundToArea;
     }
 
+    /// <summary>
+    /// Gets the list of BoidManagers in the scene.
+    /// </summary>
+    /// <returns>The list of the BoidManagers</returns>
     private List<BoidManager> GetBoidManagers()
     {
         return GameObject.FindObjectsByType<BoidManager>(FindObjectsSortMode.None).ToList();
     }
 
+    /// <summary>
+    /// Deactivates the buttons based on the number of BoidManagers in the scene.
+    /// </summary>
     private void DeactivateButtonsBasedOnBoidManagers()
     {
         if (boidManagers.Count > 0)
@@ -443,6 +484,10 @@ public class BoidManagerUIController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates the active button style based on the index of the button.
+    /// </summary>
+    /// <param name="index">The index of the button</param>
     private void UpdateActiveButtonStyle(int index)
     {
         if (index == boidManagers.IndexOf(boidManager))
@@ -455,6 +500,10 @@ public class BoidManagerUIController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the current BoidManager and updates the settings accordingly.
+    /// </summary>
+    /// <param name="boidManager">The BoidManager to be set as the current</param>
     private void SetCurrentBoidManager(BoidManager boidManager)
     {
         if (boidManager == null)
@@ -475,6 +524,10 @@ public class BoidManagerUIController : MonoBehaviour
         HandleActiveManagerChange();
     }
 
+    /// <summary>
+    /// Updates the BoidManager settings based on the current settings.
+    /// </summary>
+    /// <param name="manager">The BoidManager whose settings should be applied</param>
     private void UpdateBoidManagerSettings(BoidManager manager)
     {
         manager.GetBoidManagerSettings().manageBoids = boidManagerSettings.manageBoids;
@@ -508,6 +561,9 @@ public class BoidManagerUIController : MonoBehaviour
         manager.GetBoidSettings().maxY = settings.maxY;
     }
 
+    /// <summary>
+    /// Handles the change of the active manager by updating the values and setting the initial text values.
+    /// </summary>
     private void HandleActiveManagerChange()
     {
         GetValues();
@@ -519,11 +575,18 @@ public class BoidManagerUIController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the UIDocument for the UI controller.
+    /// </summary>
+    /// <param name="uiDocument">The UIDocument to be set</param>
     private void SetUIDocument(UIDocument uiDocument)
     {
         this.uiDocument = uiDocument;
     }
 
+    /// <summary>
+    /// Creates a new BoidManager UI document in the scene.
+    /// </summary>
     [MenuItem("GameObject/Boid System/Create new BoidManager UI document", false, 10)]
     private static void CreateBoidManagerUIController()
     {

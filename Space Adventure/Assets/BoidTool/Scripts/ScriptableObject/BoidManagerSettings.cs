@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BoidManagerSettings", menuName = "Boid/ManagerSettings", order = 2)]

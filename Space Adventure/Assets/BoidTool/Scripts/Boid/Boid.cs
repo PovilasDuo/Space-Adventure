@@ -39,6 +39,9 @@ public class Boid : MonoBehaviour
     private const float speedScalingFactorConst = 5f;
     private const float avoidanceTreshold = 0.2f;
 
+    /// <summary>
+    /// Initializes the Boid with the provided BoidSettings and sets up all components.
+    /// </summary>
     void Start()
     {
         speedScalingFactor = boidSettings.speed / speedScalingFactorConst;
@@ -47,31 +50,54 @@ public class Boid : MonoBehaviour
         initialRayCastCooldown = boidSettings.rayCastCooldown;
     }
 
+    /// <summary>
+    /// Initializes the Boid with the provided BoidSettings.
+    /// </summary>
+    /// <param name="boidSettings"></param>
     public void InitializeBoid(BoidSettings boidSettings)
     {
         this.boidSettings = boidSettings;
     }
 
+    /// <summary>
+    /// Returns the current speed of the Boid.
+    /// </summary>
+    /// <returns></returns>
     public float GetVisionRadius()
     {
         return boidSettings.visionRadius;
     }
 
+    /// <summary>
+    /// Sets the vision range of the Boid.
+    /// </summary>
+    /// <param name="enabled"></param>
     public void SetVisionRange(bool enabled)
     {
         lineRenderer.enabled = enabled;
     }
 
+    /// <summary>
+    /// Returns the flock ID of the Boid.
+    /// </summary>
+    /// <returns></returns>
     public float GetFlockID()
     {
         return boidSettings.flockID;
     }
 
+    /// <summary>
+    /// Sets the leader of the Boid.
+    /// </summary>
+    /// <param name="newLeader"></param>
     public void SetLeader(Transform newLeader)
     {
         leader = newLeader;
     }
 
+    /// <summary>
+    /// Sets up all the necessary components for the Boid.
+    /// </summary>
     private void SetUpAllComponents()
     {
         SetUpRigidBody();
@@ -85,12 +111,18 @@ public class Boid : MonoBehaviour
         SetUpScreenWarp();
     }
 
+    /// <summary>
+    /// Sets up the screen warp component if it is enabled in the BoidSettings.
+    /// </summary>
     private void SetUpScreenWarp()
     {
         ScreenWarp screenWarp = GetOrAddComponent<ScreenWarp>();
         screenWarp.enabled = boidSettings.useScreenWarp;
     }
 
+    /// <summary>
+    /// Sets up the trail renderer component if it is enabled in the BoidSettings.
+    /// </summary>
     private void SetUpTrailRenderer()
     {
         TrailRenderer trail = GetOrAddComponent<TrailRenderer>();
@@ -107,6 +139,9 @@ public class Boid : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets up the line renderer component if it is enabled in the BoidSettings.
+    /// </summary>
     private void SetUpLineRenderer()
     {
         lineRenderer = GetOrAddComponent<LineRenderer>();
@@ -125,6 +160,9 @@ public class Boid : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets up the rigid body component with specific properties.
+    /// </summary>
     private void SetUpRigidBody()
     {
         if (!GetComponent<Rigidbody>())
@@ -137,6 +175,9 @@ public class Boid : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
+    /// <summary>
+    /// Resets the Z position of the Boid if it is set to be fixed in the BoidSettings.
+    /// </summary>
     private void ResetZ()
     {
         if (transform.position.z != initialZ && boidSettings.fixZPosition)
@@ -145,11 +186,19 @@ public class Boid : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Gets or adds a component of type T to the GameObject.
+    /// </summary>
+    /// <typeparam name="T">Type of the component</typeparam>
+    /// <returns>Returns the component that it gets or that was added</returns>
     private T GetOrAddComponent<T>() where T : Component
     {
         return TryGetComponent(out T component) ? component : gameObject.AddComponent<T>();
     }
 
+    /// <summary>
+    /// Updates the properties of the Boid based on the BoidSettings.
+    /// </summary>
     public void UpdateProperties()
     {
         TrailRenderer trailRenderer = GetOrAddComponent<TrailRenderer>();
@@ -175,6 +224,9 @@ public class Boid : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates the Boid's position and rotation based on the pending velocity.
+    /// </summary>
     void FixedUpdate()
     {
         if (pendingVelocity != Vector3.zero)
@@ -184,6 +236,10 @@ public class Boid : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates the Boid's behavior based on the nearby boids.
+    /// </summary>
+    /// <param name="neighbors">The neighbor boids</param>
     public void UpdateBoid(HashSet<Boid> neighbors)
     {
         if (boidSettings.displayVisionRange)
@@ -229,6 +285,10 @@ public class Boid : MonoBehaviour
         pendingVelocity = smoothVelocity;
     }
 
+    /// <summary>
+    /// Applies the desired velocity to the Boid's rigid body and updates its rotation.
+    /// </summary>
+    /// <param name="desiredVelocity">Desired velocity to be applied</param>
     private void ApplyForce(Vector3 desiredVelocity)
     {
         desiredVelocity.z = 0f;
@@ -241,6 +301,11 @@ public class Boid : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks if the Boid interacts with another Boid based on its flock ID.
+    /// </summary>
+    /// <param name="otherBoid">The other boid to check</param>
+    /// <returns>True if it iteracts with the other boid</returns>
     public bool Interacts(Boid otherBoid)
     {
         if (otherBoid.GetFlockID() == GetFlockID())
@@ -259,6 +324,10 @@ public class Boid : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Invokes the interaction events for the Boid.
+    /// </summary>
+    /// <param name="interactionEvents">The events to be invoked</param>
     private void InvokeEvents(List<BaseAction> interactionEvents)
     {
         if (interactionEvents.Count > 0)
@@ -270,6 +339,10 @@ public class Boid : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Calculates the steering force to follow the leader.
+    /// </summary>
+    /// <returns>The vector of the force</returns>
     private Vector3 SteerFollowLeader()
     {
         Vector3 ahead = leader.position + leader.forward * distanceFromLeader;
@@ -277,6 +350,10 @@ public class Boid : MonoBehaviour
         return desiredPosition;
     }
 
+    /// <summary>
+    /// Calculates the steering force to maintain a line formation with other boids.
+    /// </summary>
+    /// <returns>The vector of the force</returns>
     private Vector3 SteerLineFormation()
     {
         Vector3 steerForce = Vector3.zero;
@@ -304,6 +381,10 @@ public class Boid : MonoBehaviour
         return steerForce;
     }
 
+    /// <summary>
+    /// Calculates the steering force to separate from nearby boids.
+    /// </summary>
+    /// <returns>The vector of the force</returns>
     private Vector3 SteerSeparation()
     {
         Vector3 separation = Vector3.zero;
@@ -325,6 +406,10 @@ public class Boid : MonoBehaviour
         return separation.normalized;
     }
 
+    /// <summary>
+    /// Calculates the steering force to align with nearby boids.
+    /// </summary>
+    /// <returns>The vector of the force</returns>
     private Vector3 SteerAlignment()
     {
         Vector3 averageDirection = Vector3.zero;
@@ -340,6 +425,10 @@ public class Boid : MonoBehaviour
         return averageDirection != Vector3.zero ? (averageDirection.normalized - transform.up).normalized : Vector3.zero;
     }
 
+    /// <summary>
+    /// Calculates the steering force to maintain cohesion with nearby boids.
+    /// </summary>
+    /// <returns>The vector of the force</returns>
     private Vector3 SteerCohesion()
     {
         Vector3 flockCenter = Vector3.zero;
@@ -364,6 +453,12 @@ public class Boid : MonoBehaviour
         return (flockCenter - transform.position).normalized;
     }
 
+    /// <summary>
+    /// Calculates the steering force to avoid obstacles.
+    /// Uses raycasting to detect obstacles in the Boid's path.
+    /// If an obstacle is detected, it calculates a reflection vector to steer away from it.
+    /// </summary>
+    /// <returns>The vector of the force</returns>
     private Vector3 SteerObstacleAvoidance()
     {
         if (rayCastCooldown > 0)
@@ -412,6 +507,14 @@ public class Boid : MonoBehaviour
         return totalDirection;
     }
 
+    /// <summary>
+    /// Calculates the steering force to keep the Boid within a specified area.
+    /// </summary>
+    /// <param name="minX">Minimum x position</param>
+    /// <param name="maxX">Maximum x position</param>
+    /// <param name="minY">Minimum y position</param>
+    /// <param name="maxY">Maximum y position</param>
+    /// <returns>The vector of the force</returns>
     private Vector3 BoundToArea(float minX, float maxX, float minY, float maxY)
     {
         Vector3 avoidance = Vector3.zero;
@@ -437,6 +540,10 @@ public class Boid : MonoBehaviour
         return avoidance.normalized;
     }
 
+    /// <summary>
+    /// Calculates the steering force to interact with nearby enemies.
+    /// </summary>
+    /// <returns>The vector of the force</returns>
     private Vector3 EnemyInteraction()
     {
         Vector3 interactionForce = Vector3.zero;
@@ -470,6 +577,10 @@ public class Boid : MonoBehaviour
         return interactionForce.normalized;
     }
 
+    /// <summary>
+    /// Checks if the Boid is stuck and applies a random force to it if it is.
+    /// </summary>
+    /// <returns>The vector of the force</returns>
     private void CheckStuckBoid(ref Vector3 velocity)
     {
         if ((transform.position - lastPosition).sqrMagnitude < boidSettings.stuckThreshold)
@@ -486,6 +597,9 @@ public class Boid : MonoBehaviour
         lastPosition = transform.position;
     }
 
+    /// <summary>
+    /// Draws the vision arc of the Boid using a LineRenderer.
+    /// </summary>
     private void DrawVisionArc()
     {
         float viewAngle = boidSettings.visionAngle;
@@ -504,6 +618,9 @@ public class Boid : MonoBehaviour
         lineRenderer.SetPosition(boidSettings.lineSegments - 1, transform.position);
     }
 
+    /// <summary>
+    /// Updates the color of the Boid based on the forces acting on it.
+    /// </summary>
     private void UpdateBoidColor()
     {
         float separationStrength = separationForce.sqrMagnitude;
@@ -552,6 +669,9 @@ public class Boid : MonoBehaviour
         renderer.material.color = currentColor;
     }
 
+    /// <summary>
+    /// Sets the color of the Boid based on its flock ID.
+    /// </summary>
     private void SetBoidColorBasedOnFlockId()
     {
         Color[] flockColors = new Color[10]
@@ -563,9 +683,9 @@ public class Boid : MonoBehaviour
             Color.magenta,
             Color.cyan,
             Color.white,
-            new Color(1f, 0.5f, 0f),  // orange
-            new Color(0.5f, 0f, 0.5f), // purple
-            new Color(0.3f, 0.6f, 0.2f)  // greenish
+            new Color(1f, 0.5f, 0f),
+            new Color(0.5f, 0f, 0.5f),
+            new Color(0.3f, 0.6f, 0.2f)
         };
 
         Color targetColor = flockColors[boidSettings.flockID];
