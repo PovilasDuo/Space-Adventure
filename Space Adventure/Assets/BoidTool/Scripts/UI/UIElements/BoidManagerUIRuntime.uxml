@@ -44,11 +44,6 @@
                 <engine:SliderInt name="speed" label="Speed" lowValue="0" highValue="20" />
                 <engine:Label name="speedValue" text="0" class="slider-value" />
             </engine:VisualElement>
-
-            <engine:VisualElement class="slider-container">
-                <engine:Slider name="smoothTime" label="Smooth Time" lowValue="0" highValue="0.3" />
-                <engine:Label name="smoothTimeValue" text="0.00" class="slider-value" />
-            </engine:VisualElement>
             
             <engine:Label text="Behavior Weights" class="header" />
             <engine:VisualElement class="slider-container">

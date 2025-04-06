@@ -15,7 +15,7 @@ MonoBehaviour:
   flockID: 0
   visionRadius: 10
   visionAngle: 120
-  speed: 10
+  speed: 0
   smoothTime: 0.1
   cohesionWeight: 1
   alignmentWeight: 1
@@ -26,12 +26,13 @@ MonoBehaviour:
   enemyInteractionWeight: 10
   isAggressive: 0
   interactsWithEnemies: 0
-  enemyInteractionActions: []
+  enemyInteractionActions:
+  - {fileID: 11400000, guid: 7f1a5810f7e74f749916f12fa2c9ea9f, type: 2}
   allyInteractionActions: []
   leader: {fileID: 0}
   stuckThreshold: 0.05
   maxStuckTime: 0.5
-  rayCastCooldown: 0.1
+  rayCastCooldown: 0.0114
   lineSegments: 20
   displayVisionRange: 1
   visualizeColors: 0

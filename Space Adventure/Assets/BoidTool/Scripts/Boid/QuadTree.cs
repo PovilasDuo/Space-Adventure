@@ -94,9 +94,15 @@ public class QuadTree
 
         foreach (var interimBoid in boids)
         {
-            if (Vector3.Distance(interimBoid.transform.position, point) <= range && interimBoid != queryingBoid)
+            if (queryingBoid != null && interimBoid != null)
             {
-                found.Add(interimBoid);
+                if (Vector3.Distance(interimBoid.transform.position, point) <= range && interimBoid != queryingBoid)
+                {
+                    if (interimBoid != null)
+                    {
+                        found.Add(interimBoid);
+                    }
+                }
             }
         }
 

@@ -18,8 +18,6 @@ public class BoidManagerUIController : MonoBehaviour
     private Label visionAngleValue;
     private SliderInt speedSlider;
     private Label speedValue;
-    private Slider smoothTimeSlider;
-    private Label smoothTimeValue;
     private Slider cohesionWeightSlider;
     private Label cohesionWeightValue;
     private Slider alignmentWeightSlider;
@@ -162,8 +160,6 @@ public class BoidManagerUIController : MonoBehaviour
         visionAngleValue = root.Q<Label>("visionAngleValue");
         speedSlider = root.Q<SliderInt>("speed");
         speedValue = root.Q<Label>("speedValue");
-        smoothTimeSlider = root.Q<Slider>("smoothTime");
-        smoothTimeValue = root.Q<Label>("smoothTimeValue");
         cohesionWeightSlider = root.Q<Slider>("cohesionWeight");
         cohesionWeightValue = root.Q<Label>("cohesionWeightValue");
         alignmentWeightSlider = root.Q<Slider>("alignmentWeight");
@@ -219,7 +215,6 @@ public class BoidManagerUIController : MonoBehaviour
         visionRadiusSlider.lowValue = 1; visionRadiusSlider.highValue = 50;
         visionAngleSlider.lowValue = 1; visionAngleSlider.highValue = 180;
         speedSlider.lowValue = 0; speedSlider.highValue = 20;
-        smoothTimeSlider.lowValue = 0; smoothTimeSlider.highValue = 0.3f;
         cohesionWeightSlider.lowValue = 0; cohesionWeightSlider.highValue = 5;
         alignmentWeightSlider.lowValue = 0; alignmentWeightSlider.highValue = 5;
         separationWeightSlider.lowValue = 0; separationWeightSlider.highValue = 5;
@@ -258,11 +253,6 @@ public class BoidManagerUIController : MonoBehaviour
         {
             settings.speed = evt.newValue;
             speedValue.text = evt.newValue.ToString();
-        });
-        smoothTimeSlider.RegisterValueChangedCallback(evt =>
-        {
-            settings.smoothTime = evt.newValue;
-            smoothTimeValue.text = evt.newValue.ToString("0.00");
         });
         cohesionWeightSlider.RegisterValueChangedCallback(evt =>
         {
@@ -386,8 +376,6 @@ public class BoidManagerUIController : MonoBehaviour
         visionAngleValue.text = visionAngleSlider.value.ToString();
         speedSlider.value = settings.speed;
         speedValue.text = speedSlider.value.ToString();
-        smoothTimeSlider.value = settings.smoothTime;
-        smoothTimeValue.text = smoothTimeSlider.value.ToString("0.00");
         cohesionWeightSlider.value = settings.cohesionWeight;
         cohesionWeightValue.text = cohesionWeightSlider.value.ToString("0.00");
         alignmentWeightSlider.value = settings.alignmentWeight;
@@ -494,7 +482,6 @@ public class BoidManagerUIController : MonoBehaviour
         manager.GetBoidSettings().visionRadius = settings.visionRadius;
         manager.GetBoidSettings().visionAngle = settings.visionAngle;
         manager.GetBoidSettings().speed = settings.speed;
-        manager.GetBoidSettings().smoothTime = settings.smoothTime;
         manager.GetBoidSettings().cohesionWeight = settings.cohesionWeight;
         manager.GetBoidSettings().alignmentWeight = settings.alignmentWeight;
         manager.GetBoidSettings().separationWeight = settings.separationWeight;

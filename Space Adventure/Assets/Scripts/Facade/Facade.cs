@@ -1,10 +1,8 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Facade : Object
 {
-	//Properties
 	private List<GameObject> asteroidList;
 	private AudioSource[] audioList;
 	private GameObject mainObject;
@@ -28,17 +26,14 @@ public class Facade : Object
 	/// <param name="collision">The collision that occured</param>
 	public void HandleCollision(Collision collision)
 	{
-		//Set up
 		Proxy proxyAudio = new Proxy("AudioManager");
 		Proxy proxyManager = new Proxy("GameManager");
 		audioList = proxyAudio.GetObject().GetComponents<AudioSource>();
 		asteroidList = proxyManager.GetObject().GetComponent<AsteroidSpawner>().asteroidList;
 		powerUp = proxyManager.GetObject().GetComponent<AsteroidSpawner>().powerUp;
 
-		//For bullets
 		if (collision.collider.tag == "Bullet")
 		{
-			//Different cases based on the asteroid size
 			if (mainObject.transform.localScale == new Vector3(3f, 3f, 3f))
 			{
 				SpawnAsteroid(3, 2f, 5f);
@@ -55,7 +50,6 @@ public class Facade : Object
 				AsteroidDestruction(audioList[1], collision.gameObject, 1);
 			}
 		}
-		//Collision with the Player (Rocket)
 		else if (collision.collider.tag == "Player")
 		{
 			UIControl uIControl = proxyManager.GetObject().GetComponent<UIControl>();
@@ -103,7 +97,6 @@ public class Facade : Object
 			}
 			else
 			{
-				//Power up spawning
 				int powerUpRNG = Random.Range(0, 100);
 				if (powerUpRNG >= 75)
 				{
@@ -125,8 +118,7 @@ public class Facade : Object
 		GameObject.FindGameObjectWithTag("GameManager").GetComponent<UIControl>().highScore += highScoreIncrease;
 		audioSource.Play();
 		Instantiate(explosionPS, mainObject.transform.position, Quaternion.identity);
-		mainObject.GetComponent<MeshRenderer>().enabled = false;
-		mainObject.GetComponent<MeshCollider>().enabled = false;
+		mainObject.GetComponent<Collider>().enabled = false;
 		Destroy(bullet);
 		Destroy(mainObject, audioSource.clip.length);
 		if (mainObject.GetComponent<AsteroidCollision>().isPowerUp)

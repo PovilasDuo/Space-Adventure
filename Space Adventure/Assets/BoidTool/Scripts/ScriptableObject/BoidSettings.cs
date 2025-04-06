@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BoidSettings", menuName = "Boid/Settings", order = 1)]
@@ -14,7 +13,7 @@ public class BoidSettings : ScriptableObject
 
     [Header("Movement Settings")]
     [Range(0, 20)] public int speed = 10;
-    [Range(0, 1)] public float smoothTime = 0.1f;
+    [Range(0, 1)] public float smoothTime = 0.05f;
 
     [Header("Behavior Weights")]
     [Range(0, 10)] public float cohesionWeight = 1;

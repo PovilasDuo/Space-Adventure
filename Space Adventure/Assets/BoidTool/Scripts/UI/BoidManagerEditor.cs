@@ -42,7 +42,6 @@ public class BoidManagerEditor : Editor
 
             EditorGUILayout.LabelField("Movement Settings", EditorStyles.boldLabel);
             boidSettings.speed = EditorGUILayout.IntSlider("Speed", boidSettings.speed, 0, 20);
-            boidSettings.smoothTime = EditorGUILayout.Slider("Smooth Time", boidSettings.smoothTime, 0, 0.3f);
 
             EditorGUILayout.LabelField("Behavior Weights", EditorStyles.boldLabel);
             boidSettings.cohesionWeight = EditorGUILayout.Slider("Cohesion Weight", boidSettings.cohesionWeight, 0, 5);

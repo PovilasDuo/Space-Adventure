@@ -218,6 +218,7 @@ public class Boid : MonoBehaviour
 
         boundToAreaForce = boidSettings.boundToArea ? BoundToArea(boidSettings.minX, boidSettings.maxX, boidSettings.minY, boidSettings.maxY) * boundToAreWeight * speedScalingFactor : Vector3.zero;
         obstacleAvoidanceForce = boidSettings.avoidanceWeight > 0 ? SteerObstacleAvoidance() * boidSettings.avoidanceWeight * speedScalingFactor : Vector3.zero;
+
         steeringForce = separationForce + alignmentForce + cohesionForce + obstacleAvoidanceForce + leaderFollowForce + boundToAreaForce + lineFormationForce + enemyInteractionForce;
 
         desiredVelocity = (rb.linearVelocity + steeringForce).normalized * boidSettings.speed;
@@ -372,24 +373,43 @@ public class Boid : MonoBehaviour
         }
         rayCastCooldown = initialRayCastCooldown;
 
-        if (Physics.SphereCast(transform.position, boidSettings.visionRadius, transform.up, out RaycastHit hit, boidSettings.visionRadius))
+        int numRays = 8;
+        float angleStep = boidSettings.visionAngle / (numRays - 1);
+        int middleStart = numRays / 4;
+        int middleEnd = (numRays * 3) / 4;
+        Vector3 totalDirection = Vector3.zero;
+
+        for (int i = 0; i < numRays; i++)
         {
-            if (hit.rigidbody != null && hit.rigidbody.CompareTag("Boid"))
-            {
-                return Vector3.zero;
-            }
-            float distanceFactor = (boidSettings.visionRadius - hit.distance);
-            Vector3 avoidanceDirection = Vector3.Reflect(transform.up, hit.normal);
-            float dot = Vector3.Dot(transform.up, hit.normal);
-            if (dot < avoidanceTreshold) 
-            {
-                avoidanceDirection += -transform.up;
-            }
+            float angle = -boidSettings.visionAngle /2f + i * angleStep;
+            Vector3 direction = Quaternion.AngleAxis(angle, transform.forward) * transform.up;
 
-            return avoidanceDirection * distanceFactor * boidSettings.speed;
+            if (Physics.Raycast(transform.position, direction, out RaycastHit hit, boidSettings.visionRadius))
+            {
+                if (hit.rigidbody != null)
+                {
+                    if (hit.rigidbody.CompareTag("Boid"))
+                    {
+                        continue;
+                    }
+                    else if (!hit.rigidbody.CompareTag("Obstacle") && (i >= middleStart && i <= middleEnd))
+                    {
+                        InvokeEvents(boidSettings.enemyInteractionActions);
+                    }
+                }
+
+                float distanceFactor = (boidSettings.visionRadius - hit.distance);
+                Vector3 avoidanceDirection = Vector3.Reflect(direction, hit.normal);
+                float dot = Vector3.Dot(transform.up, hit.normal);
+                if (dot < avoidanceTreshold)
+                {
+                    avoidanceDirection += -transform.up;
+                }
+
+                totalDirection += avoidanceDirection * distanceFactor * boidSettings.speed;
+            }
         }
-
-        return Vector3.zero;
+        return totalDirection;
     }
 
     private Vector3 BoundToArea(float minX, float maxX, float minY, float maxY)

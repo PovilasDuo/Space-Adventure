@@ -10,7 +10,7 @@ public class ShootEnemy : MonoBehaviour, IEnemyShooter
 {
     public GameObject projectilePrefab;
     public float projectileForce = 2f;
-    public float spawnDistance = 1.5f;
+    public float spawnDistance = 6f;
     public float delay = 1.0f;
     public bool isShooting = false;
 

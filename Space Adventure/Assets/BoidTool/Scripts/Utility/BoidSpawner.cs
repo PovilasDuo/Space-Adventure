@@ -9,7 +9,6 @@ public class BoidSpawner : MonoBehaviour
     [SerializeField] private GameObject obstaclePrefab;
     [SerializeField] private GameObject boidPrefab;
     [SerializeField] private BoidManager boidManager;
-    [SerializeField] private float spawnDistance = 100f;
 
     private Camera mainCamera;
 
@@ -49,8 +48,10 @@ public class BoidSpawner : MonoBehaviour
     private Vector3 GetMousePosition()
     {
         Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = spawnDistance;
-        return mainCamera.ScreenToWorldPoint(mousePosition);
+        mousePosition.z = Mathf.Abs(mainCamera.transform.position.z);
+        Vector3 desiredPosition = mainCamera.ScreenToWorldPoint(mousePosition);
+        desiredPosition.z = 0;
+        return desiredPosition;
     }
 
     private GameObject SpawnGameObject(GameObject gameObject)
