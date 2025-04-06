@@ -15,8 +15,8 @@ MonoBehaviour:
   flockID: 0
   visionRadius: 10
   visionAngle: 120
-  speed: 2
-  smoothTime: 0.5
+  speed: 10
+  smoothTime: 0.05
   cohesionWeight: 1
   alignmentWeight: 1
   separationWeight: 1.5
@@ -28,6 +28,8 @@ MonoBehaviour:
   interactsWithEnemies: 0
   enemyInteractionActions: []
   allyInteractionActions: []
+  rayCastInteractionActions: []
+  leader: {fileID: 0}
   stuckThreshold: 0.05
   maxStuckTime: 0.5
   rayCastCooldown: 0.1
@@ -35,6 +37,7 @@ MonoBehaviour:
   displayVisionRange: 1
   visualizeColors: 1
   useTrail: 1
+  setBoidColorBasedOnFlockId: 1
   useScreenWarp: 1
   fixZPosition: 1
   boundToArea: 0
@@ -42,4 +45,3 @@ MonoBehaviour:
   maxX: 100
   minY: -100
   maxY: 100
-  leader: {fileID: 0}

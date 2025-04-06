@@ -13,7 +13,7 @@ public class BoidSettings : ScriptableObject
 
     [Header("Movement Settings")]
     [Range(0, 20)] public int speed = 10;
-    [Range(0, 1)] public float smoothTime = 0.005f;
+    [Range(0, 1)] public float smoothTime = 0.03f;
 
     [Header("Behavior Weights")]
     [Range(0, 10)] public float cohesionWeight = 1;
@@ -29,6 +29,7 @@ public class BoidSettings : ScriptableObject
     public bool interactsWithEnemies = false;
     public List<BaseAction> enemyInteractionActions;
     public List<BaseAction> allyInteractionActions;
+    public List<BaseAction> rayCastInteractionActions;
     public Transform leader = null;
 
     [Header("Stuck Detection")]
@@ -40,15 +41,15 @@ public class BoidSettings : ScriptableObject
     [Range(1, 64)] public int lineSegments = 20;
 
     [Header("Visualization")]
-    public bool displayVisionRange = true;
+    public bool displayVisionRange = false;
     public bool visualizeColors = false;
     public bool useTrail = true;
     public bool setBoidColorBasedOnFlockId = true;
 
     [Header("Other Settings")]
-    public bool useScreenWarp = false;
+    public bool useScreenWarp = true;
     public bool fixZPosition = true;
-    public bool boundToArea = true;
+    public bool boundToArea = false;
     public float minX = -20;
     public float maxX = 20;
     public float minY = -20;

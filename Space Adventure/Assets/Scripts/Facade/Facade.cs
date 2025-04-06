@@ -38,7 +38,6 @@ public class Facade : Object
 			{
 				SpawnAsteroid(3, 2f, 5f);
 				AsteroidDestruction(audioList[1], collision.gameObject, 3);
-
 			}
 			else if (mainObject.transform.localScale == new Vector3(2f, 2f, 2f))
 			{
@@ -120,8 +119,8 @@ public class Facade : Object
 		Instantiate(explosionPS, mainObject.transform.position, Quaternion.identity);
 		mainObject.GetComponent<Collider>().enabled = false;
 		Destroy(bullet);
-		Destroy(mainObject, audioSource.clip.length);
-		if (mainObject.GetComponent<AsteroidCollision>().isPowerUp)
+		Destroy(mainObject);
+        if (mainObject.GetComponent<AsteroidCollision>().isPowerUp)
 		{
 			GameObject powerUpI = Instantiate(powerUp, mainObject.transform.position, Quaternion.identity);
 			powerUpI.GetComponent<Rigidbody>().angularVelocity = new Vector3(1f, 1f) * 2f;

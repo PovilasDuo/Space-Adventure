@@ -15,20 +15,21 @@ MonoBehaviour:
   flockID: 0
   visionRadius: 10
   visionAngle: 120
-  speed: 9
-  smoothTime: 0.005
+  speed: 10
+  smoothTime: 0.03
   cohesionWeight: 1
   alignmentWeight: 1
   separationWeight: 1.5
   leaderFollowWeight: 5
   avoidanceWeight: 5
   lineFormationWeight: 0
-  enemyInteractionWeight: 10
+  enemyInteractionWeight: 3
   isAggressive: 0
   interactsWithEnemies: 0
-  enemyInteractionActions:
-  - {fileID: 11400000, guid: 7f1a5810f7e74f749916f12fa2c9ea9f, type: 2}
+  enemyInteractionActions: []
   allyInteractionActions: []
+  rayCastInteractionActions:
+  - {fileID: 11400000, guid: 7f1a5810f7e74f749916f12fa2c9ea9f, type: 2}
   leader: {fileID: 0}
   stuckThreshold: 0.05
   maxStuckTime: 0.5
@@ -38,9 +39,9 @@ MonoBehaviour:
   visualizeColors: 0
   useTrail: 1
   setBoidColorBasedOnFlockId: 1
-  useScreenWarp: 0
+  useScreenWarp: 1
   fixZPosition: 1
-  boundToArea: 1
+  boundToArea: 0
   minX: -20
   maxX: 20
   minY: -20

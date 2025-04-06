@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldSizeX: 1000
   worldSizeY: 1000
-  updateInterval: 0.05
+  updateInterval: 0.00001
   manageBoids: 1
   delayUntilNextRecursion: 2
   boidPrefab: {fileID: 0}

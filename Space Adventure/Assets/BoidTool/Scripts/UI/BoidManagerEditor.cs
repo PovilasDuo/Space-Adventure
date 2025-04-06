@@ -61,6 +61,7 @@ public class BoidManagerEditor : Editor
             serializedBoidSettings.Update();
             EditorGUILayout.PropertyField(serializedBoidSettings.FindProperty("enemyInteractionActions"), true);
             EditorGUILayout.PropertyField(serializedBoidSettings.FindProperty("allyInteractionActions"), true);
+            EditorGUILayout.PropertyField(serializedBoidSettings.FindProperty("rayCastInteractionActions"), true);
             serializedBoidSettings.ApplyModifiedProperties();
 
             boidSettings.leader = null;

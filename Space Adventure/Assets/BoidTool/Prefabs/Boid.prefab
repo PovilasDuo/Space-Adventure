@@ -74,6 +74,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d237d8d7e97d86942af16fbee59aaeb6, type: 3}
       insertIndex: -1
       addedObject: {fileID: -7837013062099826532}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d237d8d7e97d86942af16fbee59aaeb6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2910506077863658693}
   m_SourcePrefab: {fileID: 100100000, guid: d237d8d7e97d86942af16fbee59aaeb6, type: 3}
 --- !u!1 &2406458945038646067 stripped
 GameObject:
@@ -93,9 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8385964379121843467, guid: 4d5f50f2a5a22a64b9ebe5b8450f9567, type: 3}
-  projectileForce: 50
+  projectileForce: 30
   spawnDistance: 1.5
-  delay: 1
+  delay: 0.5
   isShooting: 0
 --- !u!114 &-7837013062099826532
 MonoBehaviour:
@@ -109,3 +112,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd01f10ebf193964bb41878d7050da4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2910506077863658693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2406458945038646067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7ad0dda298a97745a1210aa8c860b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPS: {fileID: 4206757626649469342, guid: de4a3d8e1395095488176bc9f10788ea, type: 3}
+  isPowerUp: 0

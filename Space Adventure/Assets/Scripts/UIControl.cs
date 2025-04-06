@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,7 +25,6 @@ public class UIControl : MonoBehaviour
 
 	public TextMeshProUGUI GameOverText;
 
-	// Start is called before the first frame update
 	void Start()
     {
 		Time.timeScale = 1f;
@@ -41,7 +37,6 @@ public class UIControl : MonoBehaviour
 		Proxy proxy = new Proxy("Rocket");
 		lives = proxy.GetObject().GetComponent<RocketShipController>().health;
 		lives2 = 1;
-		//For versus
 		if (SceneManager.GetActiveScene().name == "MultiVersus")
 		{
 			Proxy proxy2 = new Proxy("Rocket2");
@@ -51,7 +46,6 @@ public class UIControl : MonoBehaviour
 		}
 	}
 
-    // Update is called once per frame
     void Update()
     {
 		if (versus)
@@ -62,7 +56,6 @@ public class UIControl : MonoBehaviour
 		}
 		else
 		{
-			//livesText2.gameObject.SetActive(false);
 			highScoreText.text = highScore.ToString();
 			livesText.text = lives.ToString();
 		}
@@ -83,7 +76,6 @@ public class UIControl : MonoBehaviour
 		}
 		else if (Input.GetKeyDown("escape") && !paused)
 		{
-			Debug.Log("whatthefuck");
 			Time.timeScale = 0f;
 			pausePanel.SetActive(true);
 			paused = true;
@@ -129,7 +121,6 @@ public class UIControl : MonoBehaviour
 					}
 					highScoreText.gameObject.SetActive(false);
 					livesText.gameObject.SetActive(false);
-					//livesText2.gameObject.SetActive(false);
 					if (rocket2 != null)
 					{
 						rocket2.SetActive(false);
@@ -156,9 +147,6 @@ public class UIControl : MonoBehaviour
 		}
 	}
 
-	/// <summary>
-	/// 
-	/// </summary>
 	public void Restart()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

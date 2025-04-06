@@ -415,8 +415,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boidManager: {fileID: 342921996}
   boidPrefab: {fileID: 2406458945038646067, guid: 7d9d102e6ef717f4499a98d4d2a28d53, type: 3}
-  spawnSpeed: 2
-  spawnDelay: 5
+  spawnSpeed: 3
+  spawnDelay: 3
   minBoidsSpawned: 1
   maxBoidsSpawned: 3
   gameStart: 0
@@ -607,10 +607,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boidManager: {fileID: 703072579}
   boidPrefab: {fileID: 2406458945038646067, guid: 7d9d102e6ef717f4499a98d4d2a28d53, type: 3}
-  spawnSpeed: 2
-  spawnDelay: 1
+  spawnSpeed: 3
+  spawnDelay: 3
   minBoidsSpawned: 1
-  maxBoidsSpawned: 5
+  maxBoidsSpawned: 3
   gameStart: 0
 --- !u!1 &875835394 stripped
 GameObject:
@@ -678,10 +678,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boidManager: {fileID: 1008621903}
   boidPrefab: {fileID: 2406458945038646067, guid: 7d9d102e6ef717f4499a98d4d2a28d53, type: 3}
-  spawnSpeed: 2
-  spawnDelay: 1
+  spawnSpeed: 3
+  spawnDelay: 3
   minBoidsSpawned: 1
-  maxBoidsSpawned: 5
+  maxBoidsSpawned: 3
   gameStart: 0
 --- !u!1 &1030702025 stripped
 GameObject:
@@ -1094,6 +1094,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 258671750685257214, guid: 1cb635818274c80489b1d18dbc00a226, type: 3}
+      propertyPath: m_Constraints
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 258671750685257214, guid: 1cb635818274c80489b1d18dbc00a226, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2115535155955965457, guid: 1cb635818274c80489b1d18dbc00a226, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1203,7 +1211,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2525139728558458804, guid: 1e4e0d851ee1a74469444a14ec4df4fd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2525139728558458804, guid: 1e4e0d851ee1a74469444a14ec4df4fd, type: 3}
       propertyPath: spawnDelay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2525139728558458804, guid: 1e4e0d851ee1a74469444a14ec4df4fd, type: 3}
+      propertyPath: spawnSpeed
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2525139728558458805, guid: 1e4e0d851ee1a74469444a14ec4df4fd, type: 3}
@@ -1452,6 +1468,10 @@ PrefabInstance:
     - target: {fileID: 5757214734000799827, guid: 8a1ab1113c07fa74ba85232920007980, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757214734000799918, guid: 8a1ab1113c07fa74ba85232920007980, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5757214734000799919, guid: 8a1ab1113c07fa74ba85232920007980, type: 3}
       propertyPath: m_Pivot.x

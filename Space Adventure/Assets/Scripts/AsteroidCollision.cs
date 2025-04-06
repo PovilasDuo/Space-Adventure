@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using TMPro;
 using UnityEngine;
 
 public class AsteroidCollision : MonoBehaviour
@@ -33,10 +30,13 @@ public class AsteroidCollision : MonoBehaviour
 	/// <returns>Time</returns>
 	private IEnumerator AsteroidSceneWrap(GameObject asteroid)
 	{
-		if (asteroid.GetComponent<SceneWrap>().enabled == false)
+        if (asteroid.TryGetComponent<SceneWrap>(out SceneWrap sceneWrap))
 		{
-			yield return new WaitForSeconds(3f);
-			asteroid.GetComponent<SceneWrap>().enabled = true;
-		}
+            if (sceneWrap.enabled == false)
+            {
+                yield return new WaitForSeconds(3f);
+                sceneWrap.enabled = true;
+            }
+        }
 	}
 }

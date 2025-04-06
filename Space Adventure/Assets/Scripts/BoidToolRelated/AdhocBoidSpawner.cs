@@ -12,10 +12,9 @@ public class AdhocBoidFactory : ObstacleFactory
         this.boidPrefab = boidPrefab;
     }
 
-    public override GameObject CreateObstacle(Camera mainCamera)
+    public override GameObject CreateObstacle(Vector3 position)
     {
-        Vector3 spawnPosition = CreatePosition(mainCamera);
-        return boidManager.SpawnBoid(spawnPosition, boidPrefab, boidManager.GetBoidSettings().flockID);
+        return boidManager.SpawnBoid(position, boidPrefab, boidManager.GetBoidSettings().flockID);
     }
 }
 
@@ -58,9 +57,17 @@ public class AdhocBoidSpawner : MonoBehaviour
         if (gameStart)
         {
             int boidsToBeSpawned = Random.Range(minBoidsSpawned, maxBoidsSpawned);
+            Vector3 position = adhocBoidFactory.CreatePosition();
             for (int i = 0; i < boidsToBeSpawned; i++)
             {
-                adhocBoidFactory.CreateObstacle(Camera.main);
+                GameObject boid = adhocBoidFactory.CreateObstacle(position);
+
+                int powerUpRNG = Random.Range(0, 100);
+                if (powerUpRNG >= 75)
+                {
+                    boid.GetComponent<Renderer>().material.color = Color.cyan;
+                    boid.GetComponent<AsteroidCollision>().isPowerUp = true;
+                }
             }
             yield return new WaitForSeconds(spawnSpeed);
         }

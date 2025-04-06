@@ -48,6 +48,7 @@ public class Boid : MonoBehaviour
         SetUpAllComponents();
         initialZ = transform.position.z;
         initialRayCastCooldown = boidSettings.rayCastCooldown;
+        rayCastCooldown = initialRayCastCooldown;
     }
 
     /// <summary>
@@ -308,19 +309,12 @@ public class Boid : MonoBehaviour
     /// <returns>True if it iteracts with the other boid</returns>
     public bool Interacts(Boid otherBoid)
     {
-        if (otherBoid.GetFlockID() == GetFlockID())
+        if (otherBoid.GetFlockID() == GetFlockID() || boidSettings.interactsWithEnemies)
         {
             InvokeEvents(boidSettings.allyInteractionActions);
             return true;
         }
-        else
-        {
-            InvokeEvents(boidSettings.enemyInteractionActions);
-        }
-        if (boidSettings.interactsWithEnemies)
-        {
-            return true;
-        }
+        InvokeEvents(boidSettings.enemyInteractionActions);
         return false;
     }
 
@@ -479,17 +473,18 @@ public class Boid : MonoBehaviour
             float angle = -boidSettings.visionAngle /2f + i * angleStep;
             Vector3 direction = Quaternion.AngleAxis(angle, transform.forward) * transform.up;
 
+            Debug.DrawRay(transform.position, direction * boidSettings.visionRadius, Color.red);
             if (Physics.Raycast(transform.position, direction, out RaycastHit hit, boidSettings.visionRadius))
             {
                 if (hit.rigidbody != null)
                 {
-                    if (hit.rigidbody.CompareTag("Boid"))
+                    if (hit.rigidbody.CompareTag("Boid") || hit.rigidbody.CompareTag("Bullet"))
                     {
                         continue;
                     }
                     else if (!hit.rigidbody.CompareTag("Obstacle") && (i >= middleStart && i <= middleEnd))
                     {
-                        InvokeEvents(boidSettings.enemyInteractionActions);
+                        InvokeEvents(boidSettings.rayCastInteractionActions);
                     }
                 }
 

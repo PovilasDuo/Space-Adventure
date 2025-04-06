@@ -4,12 +4,12 @@ using UnityEngine;
 
 public abstract class ObstacleFactory: Object
 {
-    public abstract GameObject CreateObstacle(Camera mainCamera);
+    public abstract GameObject CreateObstacle(Vector3 position);
 
-	public Vector3 CreatePosition(Camera mainCamera)
+	public Vector3 CreatePosition()
 	{
-        float cameraHeight = 2f * mainCamera.orthographicSize;
-        float cameraWidth = cameraHeight * mainCamera.aspect;
+        float cameraHeight = 2f * Camera.main.orthographicSize;
+        float cameraWidth = cameraHeight * Camera.main.aspect;
         float spawnX, spawnY;
         int spawnType = Random.Range(0, 4);
         switch (spawnType)
@@ -45,10 +45,8 @@ public class ScaledAsteroidFactory : ObstacleFactory
 	}
 
 	override
-	public GameObject CreateObstacle(Camera mainCamera)
+	public GameObject CreateObstacle(Vector3 position)
 	{
-		Vector3 spawnPosition = CreatePosition(mainCamera);
-
         int spawnScaleRNG = Random.Range(0, 100);
 		int spawnScale;
 		switch (spawnScaleRNG)
@@ -66,7 +64,7 @@ public class ScaledAsteroidFactory : ObstacleFactory
 
 		GameObject asteroidPrefab = asteroidPrefabs[Random.Range(0, asteroidPrefabs.Count)];
 
-		GameObject asteroid = Instantiate(asteroidPrefab, spawnPosition, Quaternion.identity);
+		GameObject asteroid = Instantiate(asteroidPrefab, position, Quaternion.identity);
 		asteroid.transform.localScale *= spawnScale;
 
         Vector3 direction = (Camera.main.transform.position - asteroid.GetComponent<Transform>().position).normalized;
@@ -116,7 +114,7 @@ public class AsteroidSpawner : MonoBehaviour
 	{
 		if (gameStart)
 		{
-			GameObject asteroidSpawned = asteroidFactory.CreateObstacle(mainCamera);
+			GameObject asteroidSpawned = asteroidFactory.CreateObstacle(asteroidFactory.CreatePosition());
 			yield return new WaitForSeconds(spawnSpeed);
 		}
 	}

@@ -3,28 +3,64 @@
   "WorkspaceRootPath": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|c:\\users\\ogiux\\desktop\\bakalauras\\example-tool\\space-adventure\\space adventure\\assets\\boidtool\\scripts\\scriptableobject\\boidsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\boidtool\\scripts\\scriptableobject\\boidsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\scripts\\facade\\facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\facade\\facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\BoidToolRelated\\AdhocBoidSpawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\BoidToolRelated\\AdhocBoidSpawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|c:\\users\\ogiux\\desktop\\bakalauras\\example-tool\\space-adventure\\space adventure\\assets\\boidtool\\scripts\\ui\\boidmanageruicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\boidtool\\scripts\\ui\\boidmanageruicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\scripts\\factory\\asteroidspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\factory\\asteroidspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|c:\\users\\ogiux\\desktop\\bakalauras\\example-tool\\space-adventure\\space adventure\\assets\\boidtool\\scripts\\boid\\boidmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\scripts\\asteroidcollision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\asteroidcollision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\scripts\\bulletcollision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bulletcollision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\scripts\\uicontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uicontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|c:\\users\\ogiux\\desktop\\bakalauras\\example-tool\\space-adventure\\space adventure\\assets\\boidtool\\scripts\\utility\\boidspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\boidtool\\scripts\\utility\\boidspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|c:\\users\\ogiux\\desktop\\bakalauras\\example-tool\\space-adventure\\space adventure\\assets\\boidtool\\scripts\\boid\\boid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\boidtool\\scripts\\boid\\boid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\boidtool\\scripts\\utility\\shootenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\boidtool\\scripts\\utility\\shootenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\scripts\\rocketshipcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\rocketshipcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\boidtool\\scripts\\boid\\boidmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\boidtool\\scripts\\boid\\boidmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\scripts\\facade\\facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\facade\\facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\boidtool\\scripts\\scriptableobject\\boidmanagersettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\boidtool\\scripts\\scriptableobject\\boidmanagersettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\scripts\\factory\\asteroidspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\factory\\asteroidspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\scripts\\asteroiddestroyer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\asteroiddestroyer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\boidtool\\scripts\\scriptableobject\\boidsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\boidtool\\scripts\\scriptableobject\\boidsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\boidtool\\scripts\\ui\\boidmanageruicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\boidtool\\scripts\\ui\\boidmanageruicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\scripts\\factory\\boidautomaticspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,18 +69,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\scripts\\scenewrap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scenewrap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\boidtool\\scripts\\boid\\boid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\boidtool\\scripts\\boid\\boid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\boidtool\\scripts\\utility\\shootenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\boidtool\\scripts\\utility\\shootenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\assets\\scripts\\uicontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC7ECF39-A37C-EFFF-CEDB-0CA83F9E5A74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uicontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,11 +78,87 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
+              "Title": "BoidSpawner.cs",
+              "DocumentMoniker": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\BoidTool\\Scripts\\Utility\\BoidSpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\BoidTool\\Scripts\\Utility\\BoidSpawner.cs",
+              "ToolTip": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\BoidTool\\Scripts\\Utility\\BoidSpawner.cs",
+              "RelativeToolTip": "Assets\\BoidTool\\Scripts\\Utility\\BoidSpawner.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T14:35:38.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BoidManagerSettings.cs",
+              "DocumentMoniker": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\BoidTool\\Scripts\\ScriptableObject\\BoidManagerSettings.cs",
+              "RelativeDocumentMoniker": "Assets\\BoidTool\\Scripts\\ScriptableObject\\BoidManagerSettings.cs",
+              "ToolTip": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\BoidTool\\Scripts\\ScriptableObject\\BoidManagerSettings.cs",
+              "RelativeToolTip": "Assets\\BoidTool\\Scripts\\ScriptableObject\\BoidManagerSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T13:43:03.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AsteroidCollision.cs",
+              "DocumentMoniker": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\AsteroidCollision.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\AsteroidCollision.cs",
+              "ToolTip": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\AsteroidCollision.cs",
+              "RelativeToolTip": "Assets\\Scripts\\AsteroidCollision.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAD4vxYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T12:31:55.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RocketShipController.cs",
+              "DocumentMoniker": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\RocketShipController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\RocketShipController.cs",
+              "ToolTip": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\RocketShipController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\RocketShipController.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwDsAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T12:26:58.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AsteroidDestroyer.cs",
+              "DocumentMoniker": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\AsteroidDestroyer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\AsteroidDestroyer.cs",
+              "ToolTip": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\AsteroidDestroyer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\AsteroidDestroyer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T12:25:49.491Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BulletCollision.cs",
+              "DocumentMoniker": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\BulletCollision.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BulletCollision.cs",
+              "ToolTip": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\BulletCollision.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BulletCollision.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T12:24:39.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "BoidManagerUIController.cs",
               "DocumentMoniker": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\BoidTool\\Scripts\\UI\\BoidManagerUIController.cs",
               "RelativeDocumentMoniker": "Assets\\BoidTool\\Scripts\\UI\\BoidManagerUIController.cs",
@@ -66,12 +166,11 @@
               "RelativeToolTip": "Assets\\BoidTool\\Scripts\\UI\\BoidManagerUIController.cs",
               "ViewState": "AgIAAFUBAAAAAAAAAAAnwGgBAABkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T11:32:22.71Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T11:32:22.71Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "BoidManager.cs",
               "DocumentMoniker": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\BoidTool\\Scripts\\Boid\\BoidManager.cs",
               "RelativeDocumentMoniker": "Assets\\BoidTool\\Scripts\\Boid\\BoidManager.cs",
@@ -79,25 +178,23 @@
               "RelativeToolTip": "Assets\\BoidTool\\Scripts\\Boid\\BoidManager.cs",
               "ViewState": "AgIAAAABAAAAAAAAAAAnwBMBAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T11:31:54.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T11:31:54.704Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 13,
               "Title": "BoidSettings.cs",
               "DocumentMoniker": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\BoidTool\\Scripts\\ScriptableObject\\BoidSettings.cs",
               "RelativeDocumentMoniker": "Assets\\BoidTool\\Scripts\\ScriptableObject\\BoidSettings.cs",
               "ToolTip": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\BoidTool\\Scripts\\ScriptableObject\\BoidSettings.cs",
               "RelativeToolTip": "Assets\\BoidTool\\Scripts\\ScriptableObject\\BoidSettings.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAIBZwAsAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T11:25:08.584Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T11:25:08.584Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": "BoidAutomaticSpawner.cs",
               "DocumentMoniker": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\Factory\\BoidAutomaticSpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Factory\\BoidAutomaticSpawner.cs",
@@ -109,67 +206,72 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Facade.cs",
               "DocumentMoniker": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\Facade\\Facade.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Facade\\Facade.cs",
               "ToolTip": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\Facade\\Facade.cs",
               "RelativeToolTip": "Assets\\Scripts\\Facade\\Facade.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAIBZwGMAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAFQAAAAAAAAAAAArwGkAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T09:28:39.073Z"
+              "WhenOpened": "2025-04-06T09:28:39.073Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 5,
               "Title": "UIControl.cs",
               "DocumentMoniker": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\UIControl.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UIControl.cs",
               "ToolTip": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\UIControl.cs",
               "RelativeToolTip": "Assets\\Scripts\\UIControl.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAgwCkAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T18:49:38.974Z"
+              "WhenOpened": "2025-03-31T18:49:38.974Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "ShootEnemy.cs",
               "DocumentMoniker": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\BoidTool\\Scripts\\Utility\\ShootEnemy.cs",
               "RelativeDocumentMoniker": "Assets\\BoidTool\\Scripts\\Utility\\ShootEnemy.cs",
               "ToolTip": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\BoidTool\\Scripts\\Utility\\ShootEnemy.cs",
               "RelativeToolTip": "Assets\\BoidTool\\Scripts\\Utility\\ShootEnemy.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAowBEAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T18:01:13.355Z"
+              "WhenOpened": "2025-03-31T18:01:13.355Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "Boid.cs",
               "DocumentMoniker": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\BoidTool\\Scripts\\Boid\\Boid.cs",
               "RelativeDocumentMoniker": "Assets\\BoidTool\\Scripts\\Boid\\Boid.cs",
               "ToolTip": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\BoidTool\\Scripts\\Boid\\Boid.cs",
               "RelativeToolTip": "Assets\\BoidTool\\Scripts\\Boid\\Boid.cs",
-              "ViewState": "AgIAAGYBAAAAAAAAAAAuwIEBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAMoBAAAAAAAAAAAlwN0BAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T17:59:43.589Z"
+              "WhenOpened": "2025-03-31T17:59:43.589Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "AsteroidSpawner.cs",
               "DocumentMoniker": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\Factory\\AsteroidSpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Factory\\AsteroidSpawner.cs",
               "ToolTip": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\Factory\\AsteroidSpawner.cs",
               "RelativeToolTip": "Assets\\Scripts\\Factory\\AsteroidSpawner.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAcwEgAAABPAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAgwDoAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T17:02:18.05Z"
+              "WhenOpened": "2025-03-31T17:02:18.05Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 16,
               "Title": "SceneWrap.cs",
               "DocumentMoniker": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\SceneWrap.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SceneWrap.cs",
@@ -187,7 +289,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\BoidToolRelated\\AdhocBoidSpawner.cs",
               "ToolTip": "C:\\Users\\ogiux\\Desktop\\Bakalauras\\Example-tool\\Space-Adventure\\Space Adventure\\Assets\\Scripts\\BoidToolRelated\\AdhocBoidSpawner.cs",
               "RelativeToolTip": "Assets\\Scripts\\BoidToolRelated\\AdhocBoidSpawner.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAnwC0AAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-31T17:28:49.746Z",
               "EditorCaption": ""

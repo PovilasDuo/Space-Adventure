@@ -80,7 +80,6 @@ public class RocketShipController : MonoBehaviour
 			moving = false;
 		}
 
-
 		float scaleFactor = moving ? 0.4f : 0.2f;
 		particlesFire.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
 

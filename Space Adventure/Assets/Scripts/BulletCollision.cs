@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Bulet collision specifically for players and for other bullets
 public class BulletCollision : MonoBehaviour
 {
 	public GameObject explosionPS;
@@ -13,7 +12,12 @@ public class BulletCollision : MonoBehaviour
 		if (collision.collider.tag != "Asteroid")
 		{
 			Instantiate(explosionPS, this.gameObject.transform.position, Quaternion.identity);
-			explosionAudio.Play();
+
+			if (explosionAudio.enabled)
+			{
+                explosionAudio.Play();
+            }
+
 			if(collision.collider.tag == "Player")
 			{
 				Proxy proxyManager = new Proxy("GameManager");
@@ -36,7 +40,7 @@ public class BulletCollision : MonoBehaviour
 					uIControl.lives--;
 				}
 			}
-			this.gameObject.GetComponent<SphereCollider>().enabled = false;
+			this.gameObject.GetComponent<Collider>().enabled = false;
 			this.gameObject.GetComponent<MeshRenderer>().enabled = false;
 			Destroy(this.gameObject, 1f);
 		}
