@@ -15,8 +15,8 @@ MonoBehaviour:
   flockID: 0
   visionRadius: 10
   visionAngle: 120
-  speed: 10
-  smoothTime: 0.05
+  speed: 2
+  smoothTime: 0.03
   cohesionWeight: 1
   alignmentWeight: 1
   separationWeight: 1.5

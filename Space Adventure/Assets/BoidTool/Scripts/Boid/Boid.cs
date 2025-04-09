@@ -27,8 +27,6 @@ public class Boid : MonoBehaviour
     private float stuckTimer;
 
     private Transform leader;
-    private const int distanceFromLeader = 2;
-    private const int boundToAreWeight = 10;
 
     private Color currentColor = Color.white;
     private float initialZ;
@@ -36,15 +34,13 @@ public class Boid : MonoBehaviour
     private float initialRayCastCooldown;
     private float rayCastCooldown;
     private float speedScalingFactor;
-    private const float speedScalingFactorConst = 5f;
-    private const float avoidanceTreshold = 0.2f;
 
     /// <summary>
     /// Initializes the Boid with the provided BoidSettings and sets up all components.
     /// </summary>
     void Start()
     {
-        speedScalingFactor = boidSettings.speed / speedScalingFactorConst;
+        speedScalingFactor = boidSettings.speed / boidSettings.speedScalingFactor;
         SetUpAllComponents();
         initialZ = transform.position.z;
         initialRayCastCooldown = boidSettings.rayCastCooldown;
@@ -131,7 +127,7 @@ public class Boid : MonoBehaviour
 
         if (boidSettings.useTrail)
         {
-            trail.time = 1.5f;
+            trail.time = boidSettings.trailTime;
             trail.startWidth = 0.1f;
             trail.endWidth = 0.05f;
             trail.sharedMaterial = new Material(Shader.Find("Unlit/Color"));
@@ -273,7 +269,7 @@ public class Boid : MonoBehaviour
             enemyInteractionForce = boidSettings.enemyInteractionWeight > 0 ? EnemyInteraction() * boidSettings.enemyInteractionWeight * speedScalingFactor : Vector3.zero;
         }
 
-        boundToAreaForce = boidSettings.boundToArea ? BoundToArea(boidSettings.minX, boidSettings.maxX, boidSettings.minY, boidSettings.maxY) * boundToAreWeight * speedScalingFactor : Vector3.zero;
+        boundToAreaForce = boidSettings.boundToArea ? BoundToArea(boidSettings.minX, boidSettings.maxX, boidSettings.minY, boidSettings.maxY) * boidSettings.boundToAreWeight * speedScalingFactor : Vector3.zero;
         obstacleAvoidanceForce = boidSettings.avoidanceWeight > 0 ? SteerObstacleAvoidance() * boidSettings.avoidanceWeight * speedScalingFactor : Vector3.zero;
 
         steeringForce = separationForce + alignmentForce + cohesionForce + obstacleAvoidanceForce + leaderFollowForce + boundToAreaForce + lineFormationForce + enemyInteractionForce;
@@ -339,7 +335,7 @@ public class Boid : MonoBehaviour
     /// <returns>The vector of the force</returns>
     private Vector3 SteerFollowLeader()
     {
-        Vector3 ahead = leader.position + leader.forward * distanceFromLeader;
+        Vector3 ahead = leader.position + leader.forward * boidSettings.distanceFromLeader;
         Vector3 desiredPosition = (ahead - transform.position).normalized;
         return desiredPosition;
     }
@@ -370,9 +366,7 @@ public class Boid : MonoBehaviour
 
         Vector3 projectedPosition = Vector3.Project(transform.position - averagePosition, averageDirection) + averagePosition;
 
-        steerForce = (projectedPosition - transform.position).normalized;
-
-        return steerForce;
+        return (projectedPosition - transform.position).normalized;
     }
 
     /// <summary>
@@ -462,13 +456,12 @@ public class Boid : MonoBehaviour
         }
         rayCastCooldown = initialRayCastCooldown;
 
-        int numRays = 8;
-        float angleStep = boidSettings.visionAngle / (numRays - 1);
-        int middleStart = numRays / 4;
-        int middleEnd = (numRays * 3) / 4;
+        float angleStep = boidSettings.visionAngle / (boidSettings.numberOfRays - 1);
+        int middleStart = boidSettings.numberOfRays / 4;
+        int middleEnd = (boidSettings.numberOfRays * 3) / 4;
         Vector3 totalDirection = Vector3.zero;
 
-        for (int i = 0; i < numRays; i++)
+        for (int i = 0; i < boidSettings.numberOfRays; i++)
         {
             float angle = -boidSettings.visionAngle /2f + i * angleStep;
             Vector3 direction = Quaternion.AngleAxis(angle, transform.forward) * transform.up;
@@ -482,7 +475,7 @@ public class Boid : MonoBehaviour
                     {
                         continue;
                     }
-                    else if (!hit.rigidbody.CompareTag("Obstacle") && (i >= middleStart && i <= middleEnd))
+                    else if (hit.rigidbody.CompareTag("Obstacle") && (i >= middleStart && i <= middleEnd))
                     {
                         InvokeEvents(boidSettings.rayCastInteractionActions);
                     }
@@ -491,7 +484,7 @@ public class Boid : MonoBehaviour
                 float distanceFactor = (boidSettings.visionRadius - hit.distance);
                 Vector3 avoidanceDirection = Vector3.Reflect(direction, hit.normal);
                 float dot = Vector3.Dot(transform.up, hit.normal);
-                if (dot < avoidanceTreshold)
+                if (dot < boidSettings.avoidanceThreshold)
                 {
                     avoidanceDirection += -transform.up;
                 }
@@ -587,7 +580,10 @@ public class Boid : MonoBehaviour
                 stuckTimer = 0;
             }
         }
-        else stuckTimer = 0;
+        else
+        {
+            stuckTimer = 0;
+        }
 
         lastPosition = transform.position;
     }

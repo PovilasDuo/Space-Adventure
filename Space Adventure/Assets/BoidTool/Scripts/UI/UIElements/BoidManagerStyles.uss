@@ -1,8 +1,8 @@
 :root {
-    --background-color: #1E1E1E;
+    --background-color: #000000;
     --panel-color: #2D2D2D;
     --text-color: #FFFFFF;
-    --highlight-color: #4CAF50;
+    --highlight-color: green;
     --active-color: #FF9800;
     --border-radius: 8px;
     --padding: 10px;

@@ -423,7 +423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca352df811bc174187dd5fb14f1fae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boidManager: {fileID: 160904498}
   boidPrefab: {fileID: 2406458945038646067, guid: 7d9d102e6ef717f4499a98d4d2a28d53, type: 3}
   spawnSpeed: 3
   spawnDelay: 3
@@ -1780,7 +1779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca352df811bc174187dd5fb14f1fae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boidManager: {fileID: 604183698}
   boidPrefab: {fileID: 2406458945038646067, guid: 7d9d102e6ef717f4499a98d4d2a28d53, type: 3}
   spawnSpeed: 3
   spawnDelay: 3
@@ -4003,7 +4001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca352df811bc174187dd5fb14f1fae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boidManager: {fileID: 1562835330}
   boidPrefab: {fileID: 2406458945038646067, guid: 7d9d102e6ef717f4499a98d4d2a28d53, type: 3}
   spawnSpeed: 3
   spawnDelay: 3
@@ -4848,7 +4845,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca352df811bc174187dd5fb14f1fae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boidManager: {fileID: 2095579378}
   boidPrefab: {fileID: 2406458945038646067, guid: 7d9d102e6ef717f4499a98d4d2a28d53, type: 3}
   spawnSpeed: 3
   spawnDelay: 3

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86e4e30fa9d62724db210afb36226194, type: 3}
-  m_Name: BoidManagerSettings
+  m_Name: BoidManagerSettings 4
   m_EditorClassIdentifier: 
   worldSizeX: 1000
   worldSizeY: 1000
   updateInterval: 0.05
   manageBoids: 1
-  delayUntilNextRecursion: 2
+  delayUntilNextRecursion: 1
   boidPrefab: {fileID: 0}

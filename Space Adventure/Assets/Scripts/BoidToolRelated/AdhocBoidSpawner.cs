@@ -20,14 +20,14 @@ public class AdhocBoidFactory : ObstacleFactory
 
 public class AdhocBoidSpawner : MonoBehaviour
 {
-    public BoidManager boidManager;
+    private BoidManager boidManager;
     public GameObject boidPrefab;
 
     public float spawnSpeed = 2f;
     public float spawnDelay = 1.0f;
     private float nextSpawnTime = 0.0f;
     public int minBoidsSpawned = 1;
-    public int maxBoidsSpawned = 10;
+    public int maxBoidsSpawned = 5;
 
     public bool gameStart = false;
 
@@ -35,6 +35,7 @@ public class AdhocBoidSpawner : MonoBehaviour
 
     void Start()
     {
+        boidManager = GetComponent<BoidManager>();
         adhocBoidFactory = new AdhocBoidFactory(boidManager, boidPrefab);
     }
 
@@ -66,7 +67,9 @@ public class AdhocBoidSpawner : MonoBehaviour
                 if (powerUpRNG >= 75)
                 {
                     boid.GetComponent<Renderer>().material.color = Color.cyan;
-                    boid.GetComponent<AsteroidCollision>().isPowerUp = true;
+                    if (TryGetComponent(out AsteroidCollision asteroidCollision)) {
+                        asteroidCollision.isPowerUp = true;
+                    }
                 }
             }
             yield return new WaitForSeconds(spawnSpeed);

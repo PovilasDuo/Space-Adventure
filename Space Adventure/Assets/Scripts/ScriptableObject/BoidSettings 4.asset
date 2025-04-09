@@ -10,28 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5485ced2bcb6b54d98be32ccb9d04d1, type: 3}
-  m_Name: BoidSettings
+  m_Name: BoidSettings 4
   m_EditorClassIdentifier: 
   flockID: 0
-  visionRadius: 10
-  visionAngle: 120
-  speed: 10
+  visionRadius: 20
+  visionAngle: 160
+  speed: 8
   smoothTime: 0.03
   speedScalingFactor: 5
   cohesionWeight: 1
   alignmentWeight: 1
-  separationWeight: 1.5
-  leaderFollowWeight: 5
+  separationWeight: 2
+  leaderFollowWeight: 0
   avoidanceWeight: 5
   lineFormationWeight: 0
-  enemyInteractionWeight: 3
-  boundToAreWeight: 10
-  isAggressive: 0
+  enemyInteractionWeight: 10
+  boundToAreWeight: 0
+  isAggressive: 1
   interactsWithEnemies: 0
-  enemyInteractionActions: []
-  allyInteractionActions: []
-  rayCastInteractionActions:
+  enemyInteractionActions:
   - {fileID: 11400000, guid: 7f1a5810f7e74f749916f12fa2c9ea9f, type: 2}
+  allyInteractionActions: []
+  rayCastInteractionActions: []
   leader: {fileID: 0}
   stuckThreshold: 0.05
   maxStuckTime: 0.5
@@ -41,7 +41,7 @@ MonoBehaviour:
   displayVisionRange: 1
   visualizeColors: 0
   useTrail: 1
-  trailTime: 1.5
+  trailTime: 1
   setBoidColorBasedOnFlockId: 1
   avoidanceThreshold: 0.2
   distanceFromLeader: 2
