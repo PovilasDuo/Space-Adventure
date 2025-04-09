@@ -7,18 +7,16 @@ using UnityEngine;
 public class StartSiren : MonoBehaviour
 {
 	public AudioSource siren;
-	private GameObject gameManager;
 	private bool playing;
-	// Start is called before the first frame update
 	private Proxy proxyManager = new Proxy("GameManager");
 	private UIControl uIControl;
+
 	void Start()
     {
 		playing = false;
 		uIControl = proxyManager.GetObject().GetComponent<UIControl>();
 	}
 
-    // Update is called once per frame
     void Update()
     {
 		if (proxyManager.GetObject() != null)
@@ -44,15 +42,15 @@ public class StartSiren : MonoBehaviour
 			}
 			if (uIControl.versus)
 			{
-				if (uIControl.lives == 0 || uIControl.lives2 == 0)
+				if ((uIControl.lives == 0 || uIControl.lives > 1) || (uIControl.lives2 == 0 || uIControl.lives2 > 1))
 				{
 					siren.Stop();
 				}
 			}
 			else
 			{
-				if (uIControl.lives == 0)
-				{
+				if (uIControl.lives == 0 || uIControl.lives > 1)
+                {
 					siren.Stop();
 				}
 			}

@@ -2,48 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IAsteroidFactory
+public abstract class ObstacleFactory: Object
 {
-	GameObject CreateAsteroid(Camera mainCamera, float asteroidSpeed);
+    public abstract GameObject CreateObstacle(Vector3 position);
+
+	public Vector3 CreatePosition()
+	{
+        float cameraHeight = 2f * Camera.main.orthographicSize;
+        float cameraWidth = cameraHeight * Camera.main.aspect;
+        float spawnX, spawnY;
+        int spawnType = Random.Range(0, 4);
+        switch (spawnType)
+        {
+            case 0:
+                spawnX = cameraWidth;
+                spawnY = Random.Range(-cameraHeight, cameraHeight);
+                break;
+            case 1:
+                spawnX = -cameraWidth;
+                spawnY = Random.Range(-cameraHeight, cameraHeight);
+                break;
+            case 2:
+                spawnX = Random.Range(-cameraWidth, cameraWidth);
+                spawnY = cameraHeight;
+                break;
+            default:
+                spawnX = Random.Range(-cameraWidth, cameraWidth);
+                spawnY = -cameraHeight;
+                break;
+        }
+        return new(spawnX, spawnY, 0f);
+    }
 }
 
-public class ScaledAsteroidFactory : Object, IAsteroidFactory
+public class ScaledAsteroidFactory : ObstacleFactory
 {
 	private List<GameObject> asteroidPrefabs;
-
-	public ScaledAsteroidFactory(List<GameObject> asteroidPrefabs)
+	private const float asteroidSpeed = 750;
+    public ScaledAsteroidFactory(List<GameObject> asteroidPrefabs)
 	{
 		this.asteroidPrefabs = asteroidPrefabs;
 	}
 
-	public GameObject CreateAsteroid(Camera mainCamera, float asteroidSpeed)
+	override
+	public GameObject CreateObstacle(Vector3 position)
 	{
-		float cameraHeight = 2f * mainCamera.orthographicSize;
-		float cameraWidth = cameraHeight * mainCamera.aspect;
-		float spawnX, spawnY;
-		int spawnType = Random.Range(0, 4);
-		switch (spawnType)
-		{
-			case 0:
-				spawnX = cameraWidth;
-				spawnY = Random.Range(-cameraHeight, cameraHeight);
-				break;
-			case 1:
-				spawnX = -cameraWidth;
-				spawnY = Random.Range(-cameraHeight, cameraHeight);
-				break;
-			case 2:
-				spawnX = Random.Range(-cameraWidth, cameraWidth);
-				spawnY = cameraHeight;
-				break;
-			default:
-				spawnX = Random.Range(-cameraWidth, cameraWidth);
-				spawnY = -cameraHeight;
-				break;
-		}
-		Vector3 spawnPosition = new(spawnX, spawnY, 0f);
-
-		int spawnScaleRNG = Random.Range(0, 100);
+        int spawnScaleRNG = Random.Range(0, 100);
 		int spawnScale;
 		switch (spawnScaleRNG)
 		{
@@ -60,23 +64,20 @@ public class ScaledAsteroidFactory : Object, IAsteroidFactory
 
 		GameObject asteroidPrefab = asteroidPrefabs[Random.Range(0, asteroidPrefabs.Count)];
 
-		GameObject asteroid = Instantiate(asteroidPrefab, spawnPosition, Quaternion.identity);
+		GameObject asteroid = Instantiate(asteroidPrefab, position, Quaternion.identity);
 		asteroid.transform.localScale *= spawnScale;
 
-		Vector3 direction = (Camera.main.transform.position - asteroid.GetComponent<Transform>().position).normalized;
-		asteroid.GetComponent<Rigidbody>().AddForce(direction * asteroidSpeed);
-		asteroid.GetComponent<Rigidbody>().angularVelocity = direction * 2f;
-		return asteroid;
+        Vector3 direction = (Camera.main.transform.position - asteroid.GetComponent<Transform>().position).normalized;
+        asteroid.GetComponent<Rigidbody>().AddForce(direction * asteroidSpeed);
+		asteroid.GetComponent<Rigidbody>().angularVelocity = direction;
+
+        return asteroid;
 	}
 }
 
-/// <summary>
-/// 
-/// </summary>
 public class AsteroidSpawner : MonoBehaviour
 {
-	private Camera mainCamera;
-	private GameObject asteroidPrefab;
+    private Camera mainCamera;
 	public List<GameObject> asteroidList;
 	public GameObject powerUp;
 
@@ -92,11 +93,8 @@ public class AsteroidSpawner : MonoBehaviour
 
 	public bool gameStart = false;
 
-	private IAsteroidFactory asteroidFactory;
+	private ObstacleFactory asteroidFactory;
 
-	/// <summary>
-	/// 
-	/// </summary>
 	void Start()
 	{
 		mainCamera = Camera.main;
@@ -105,7 +103,6 @@ public class AsteroidSpawner : MonoBehaviour
 
 	void Update()
 	{
-		// Check if it's time to spawn asteroids
 		if (Time.time > nextSpawnTime)
 		{
 			StartCoroutine(SpawnAsteroids());
@@ -113,15 +110,11 @@ public class AsteroidSpawner : MonoBehaviour
 		}
 	}
 
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <returns></returns>
 	IEnumerator SpawnAsteroids()
 	{
 		if (gameStart)
 		{
-			GameObject asteroidSpawned = asteroidFactory.CreateAsteroid(mainCamera, asteroidSpeed);
+			GameObject asteroidSpawned = asteroidFactory.CreateObstacle(asteroidFactory.CreatePosition());
 			yield return new WaitForSeconds(spawnSpeed);
 		}
 	}
