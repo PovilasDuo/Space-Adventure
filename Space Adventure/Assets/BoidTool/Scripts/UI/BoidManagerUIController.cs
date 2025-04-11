@@ -583,7 +583,7 @@ public class BoidManagerUIController : MonoBehaviour
     {
         this.uiDocument = uiDocument;
     }
-
+#if UNITY_EDITOR
     /// <summary>
     /// Creates a new BoidManager UI document in the scene.
     /// </summary>
@@ -604,4 +604,5 @@ public class BoidManagerUIController : MonoBehaviour
             Debug.LogError("Some issues arose durring automatic UI Document set up\nYou will need to finish adding the components manually");
         }
     }
+#endif
 }

@@ -74,7 +74,12 @@ public class MainMenuManager : MonoBehaviour
 		SceneManager.LoadScene("MultiVersus");
 	}
 
-	public void Back()
+    public void Demo()
+    {
+        SceneManager.LoadScene("Demo");
+    }
+
+    public void Back()
 	{
 		mainMenuPanel.SetActive(true);
 		if (settingsPanel.activeSelf || gameModePanel.activeSelf)

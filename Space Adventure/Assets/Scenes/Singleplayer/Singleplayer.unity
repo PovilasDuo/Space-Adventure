@@ -404,7 +404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca352df811bc174187dd5fb14f1fae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boidManager: {fileID: 342921996}
   boidPrefab: {fileID: 2406458945038646067, guid: 7d9d102e6ef717f4499a98d4d2a28d53, type: 3}
   spawnSpeed: 3
   spawnDelay: 3
@@ -596,7 +595,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca352df811bc174187dd5fb14f1fae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boidManager: {fileID: 703072579}
   boidPrefab: {fileID: 2406458945038646067, guid: 7d9d102e6ef717f4499a98d4d2a28d53, type: 3}
   spawnSpeed: 3
   spawnDelay: 3
@@ -667,7 +665,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca352df811bc174187dd5fb14f1fae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boidManager: {fileID: 1008621903}
   boidPrefab: {fileID: 2406458945038646067, guid: 7d9d102e6ef717f4499a98d4d2a28d53, type: 3}
   spawnSpeed: 3
   spawnDelay: 3
@@ -743,7 +740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca352df811bc174187dd5fb14f1fae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boidManager: {fileID: 1500842978}
   boidPrefab: {fileID: 2406458945038646067, guid: 7d9d102e6ef717f4499a98d4d2a28d53, type: 3}
   spawnSpeed: 3
   spawnDelay: 3
@@ -1610,6 +1606,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 58481422}
+    - target: {fileID: 5757214734000799825, guid: 8a1ab1113c07fa74ba85232920007980, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5757214734000799827, guid: 8a1ab1113c07fa74ba85232920007980, type: 3}
       propertyPath: m_Name
       value: Canvas

@@ -1184,7 +1184,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -3307,7 +3307,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca352df811bc174187dd5fb14f1fae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boidManager: {fileID: 997614455}
   boidPrefab: {fileID: 2406458945038646067, guid: 7d9d102e6ef717f4499a98d4d2a28d53, type: 3}
   spawnSpeed: 3
   spawnDelay: 3
@@ -4058,7 +4057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca352df811bc174187dd5fb14f1fae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boidManager: {fileID: 1727802224}
   boidPrefab: {fileID: 2406458945038646067, guid: 7d9d102e6ef717f4499a98d4d2a28d53, type: 3}
   spawnSpeed: 3
   spawnDelay: 3

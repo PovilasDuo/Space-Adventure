@@ -35,15 +35,18 @@ public class UIControl : MonoBehaviour
 		gameOver = false;
 
 		Proxy proxy = new Proxy("Rocket");
-		lives = proxy.GetObject().GetComponent<RocketShipController>().health;
-		lives2 = 1;
-		if (SceneManager.GetActiveScene().name == "MultiVersus")
+		if (proxy.GetObject() != null)
 		{
-			Proxy proxy2 = new Proxy("Rocket2");
-			GameObject rocket2 = proxy2.GetObject();
-			lives2 = rocket2.GetComponent<RocketShipController>().health;
-			versus = true;
-		}
+            lives = proxy.GetObject().GetComponent<RocketShipController>().health;
+            lives2 = 1;
+            if (SceneManager.GetActiveScene().name == "MultiVersus")
+            {
+                Proxy proxy2 = new Proxy("Rocket2");
+                GameObject rocket2 = proxy2.GetObject();
+                lives2 = rocket2.GetComponent<RocketShipController>().health;
+                versus = true;
+            }
+        }
 	}
 
     void Update()
@@ -105,7 +108,7 @@ public class UIControl : MonoBehaviour
 			GameObject rocket = proxy.GetObject();
 			Proxy proxy2 = new Proxy("Rocket2");
 			GameObject rocket2 = proxy2.GetObject();
-			if (lives <= 0 || (lives2 <= 0 && rocket2 != null))
+			if ((lives <= 0 && rocket != null) || (lives2 <= 0 && rocket2 != null))
 			{
 				gameOver = true;
 				gameOverPanel.SetActive(true);

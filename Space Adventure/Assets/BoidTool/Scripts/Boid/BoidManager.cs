@@ -279,6 +279,7 @@ public class BoidManager : MonoBehaviour
         }
     }
 
+#if UNITY_EDITOR
     /// <summary>
     /// Creates a new BoidManager instance in the scene.
     /// </summary>
@@ -321,6 +322,7 @@ public class BoidManager : MonoBehaviour
 
         Selection.activeObject = newBoidManager;
     }
+#endif
 
     /// <summary>
     /// Registers all boids in the scene at the start.

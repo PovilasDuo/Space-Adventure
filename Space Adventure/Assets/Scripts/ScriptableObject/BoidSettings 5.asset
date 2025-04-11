@@ -31,7 +31,8 @@ MonoBehaviour:
   enemyInteractionActions:
   - {fileID: 11400000, guid: 7f1a5810f7e74f749916f12fa2c9ea9f, type: 2}
   allyInteractionActions: []
-  rayCastInteractionActions: []
+  rayCastInteractionActions:
+  - {fileID: 11400000, guid: 7f1a5810f7e74f749916f12fa2c9ea9f, type: 2}
   leader: {fileID: 0}
   stuckThreshold: 0.05
   maxStuckTime: 0.5

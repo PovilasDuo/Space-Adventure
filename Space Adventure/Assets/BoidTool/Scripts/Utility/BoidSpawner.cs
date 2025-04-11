@@ -143,6 +143,7 @@ public class BoidSpawner : MonoBehaviour
         this.obstaclePrefab = obstaclePrefab;
     }
 
+#if UNITY_EDITOR
     /// <summary>
     /// Creates a new Boid Spawner instance in the scene.
     /// </summary>
@@ -164,4 +165,5 @@ public class BoidSpawner : MonoBehaviour
             Debug.LogWarning("There has been an issue with Boid Spawner automatic set up\nYou will need to finish adding the components manually");
         }
     }
+#endif
 }

@@ -130,9 +130,6 @@ public class Boid : MonoBehaviour
             trail.time = boidSettings.trailTime;
             trail.startWidth = 0.1f;
             trail.endWidth = 0.05f;
-            trail.sharedMaterial = new Material(Shader.Find("Unlit/Color"));
-            trail.startColor = Color.yellow;
-            trail.endColor = Color.clear;
         }
     }
 
@@ -148,12 +145,9 @@ public class Boid : MonoBehaviour
         {
             if (lineRenderer.sharedMaterial == null)
             {
-                lineRenderer.sharedMaterial = new Material(Shader.Find("Unlit/Color"));
-                lineRenderer.sharedMaterial.color = Color.red;
+                lineRenderer.startWidth = 0.05f;
+                lineRenderer.endWidth = 0.05f;
             }
-
-            lineRenderer.startWidth = 0.05f;
-            lineRenderer.endWidth = 0.05f;
         }
     }
 

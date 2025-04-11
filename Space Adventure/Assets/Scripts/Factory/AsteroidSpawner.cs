@@ -6,32 +6,40 @@ public abstract class ObstacleFactory: Object
 {
     public abstract GameObject CreateObstacle(Vector3 position);
 
-	public Vector3 CreatePosition()
-	{
-        float cameraHeight = 2f * Camera.main.orthographicSize;
-        float cameraWidth = cameraHeight * Camera.main.aspect;
+    public Vector3 CreatePosition()
+    {
+        Camera cam = Camera.main;
+        float cameraHeight = 2f * cam.orthographicSize;
+        float cameraWidth = cameraHeight * cam.aspect;
+
+        float halfWidth = cameraWidth / 2f;
+        float halfHeight = cameraHeight / 2f;
+
+        Vector3 camPos = cam.transform.position;
+
         float spawnX, spawnY;
         int spawnType = Random.Range(0, 4);
         switch (spawnType)
         {
-            case 0:
-                spawnX = cameraWidth;
-                spawnY = Random.Range(-cameraHeight, cameraHeight);
+            case 0: // Right
+                spawnX = camPos.x + halfWidth + 1f;
+                spawnY = Random.Range(camPos.y - halfHeight, camPos.y + halfHeight);
                 break;
-            case 1:
-                spawnX = -cameraWidth;
-                spawnY = Random.Range(-cameraHeight, cameraHeight);
+            case 1: // Left
+                spawnX = camPos.x - halfWidth - 1f;
+                spawnY = Random.Range(camPos.y - halfHeight, camPos.y + halfHeight);
                 break;
-            case 2:
-                spawnX = Random.Range(-cameraWidth, cameraWidth);
-                spawnY = cameraHeight;
+            case 2: // Top
+                spawnX = Random.Range(camPos.x - halfWidth, camPos.x + halfWidth);
+                spawnY = camPos.y + halfHeight + 1f;
                 break;
-            default:
-                spawnX = Random.Range(-cameraWidth, cameraWidth);
-                spawnY = -cameraHeight;
+            default: // Bottom
+                spawnX = Random.Range(camPos.x - halfWidth, camPos.x + halfWidth);
+                spawnY = camPos.y - halfHeight - 1f;
                 break;
         }
-        return new(spawnX, spawnY, 0f);
+
+        return new Vector3(spawnX, spawnY, 0f);
     }
 }
 

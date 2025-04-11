@@ -1,6 +1,8 @@
 using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
+
 [CustomEditor(typeof(BoidManager))]
 public class BoidManagerEditor : Editor
 {
@@ -109,3 +111,5 @@ public class BoidManagerEditor : Editor
         }
     }
 }
+
+#endif
