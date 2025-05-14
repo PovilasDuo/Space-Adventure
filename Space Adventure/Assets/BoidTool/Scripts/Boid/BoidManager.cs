@@ -27,15 +27,6 @@ public class BoidManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Returns the QuadTree instance.
-    /// </summary>
-    /// <returns>QuadTree instance assigned to the BoidManager</returns>
-    public QuadTree GetQuadTree()
-    {
-        return quadTree;
-    }
-
-    /// <summary>
     /// Starts a coroutine to update the boids at a specified interval.
     /// </summary>
     /// <param name="updateInterval">Update interval for the boid management</param>
@@ -273,9 +264,12 @@ public class BoidManager : MonoBehaviour
     /// <param name="enabled">To enable or to disable the vision range</param>
     public void EnableFlockVisionRange(int flockID, bool enabled)
     {
-        foreach (Boid boid in flocks[flockID])
+        if (flocks.ContainsKey(flockID))
         {
-            boid.SetVisionRange(enabled);
+            foreach (Boid boid in flocks[flockID])
+            {
+                boid.SetVisionRange(enabled);
+            }
         }
     }
 

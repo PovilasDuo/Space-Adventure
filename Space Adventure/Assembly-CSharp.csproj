@@ -74,7 +74,6 @@
     <Compile Include="Assets\Scripts\UIControl.cs" />
     <Compile Include="Assets\Scripts\AsteroidCollision.cs" />
     <Compile Include="Assets\Scripts\Proxy\Proxy.cs" />
-    <Compile Include="Assets\Scripts\Factory\BoidAutomaticSpawner.cs" />
     <Compile Include="Assets\BoidTool\Scripts\Utility\ShootEnemy.cs" />
     <Compile Include="Assets\BoidTool\Scripts\ScriptableObject\BoidSettings.cs" />
     <Compile Include="Assets\BoidTool\Scripts\Boid\BoidManager.cs" />

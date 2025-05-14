@@ -40,7 +40,6 @@ public class Boid : MonoBehaviour
     /// </summary>
     void Start()
     {
-        speedScalingFactor = boidSettings.speed / boidSettings.speedScalingFactor;
         SetUpAllComponents();
         initialZ = transform.position.z;
         initialRayCastCooldown = boidSettings.rayCastCooldown;
@@ -252,6 +251,7 @@ public class Boid : MonoBehaviour
         Vector3 steeringForce = Vector3.zero;
         Vector3 desiredVelocity = Vector3.zero;
         Vector3 smoothVelocity = Vector3.zero;
+        speedScalingFactor = boidSettings.speed / boidSettings.speedScalingFactor;
 
         if (nearbyBoids.Count > 0)
         {
@@ -457,10 +457,10 @@ public class Boid : MonoBehaviour
 
         for (int i = 0; i < boidSettings.numberOfRays; i++)
         {
-            float angle = -boidSettings.visionAngle /2f + i * angleStep;
+            float angle = -boidSettings.visionAngle / 2f + i * angleStep;
             Vector3 direction = Quaternion.AngleAxis(angle, transform.forward) * transform.up;
 
-            Debug.DrawRay(transform.position, direction * boidSettings.visionRadius, Color.red);
+            Debug.DrawRay(transform.position, direction * boidSettings.visionRadius, Color.red, 0.2f);
             if (Physics.Raycast(transform.position, direction, out RaycastHit hit, boidSettings.visionRadius))
             {
                 if (hit.rigidbody != null)
@@ -668,9 +668,9 @@ public class Boid : MonoBehaviour
             Color.magenta,
             Color.cyan,
             Color.white,
-            new Color(1f, 0.5f, 0f),
-            new Color(0.5f, 0f, 0.5f),
-            new Color(0.3f, 0.6f, 0.2f)
+            Color.gray,
+            Color.black,
+            new Color(0.6f, 0.2f, 0.7f)
         };
 
         Color targetColor = flockColors[boidSettings.flockID];

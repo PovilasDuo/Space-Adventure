@@ -28,9 +28,19 @@ public class Facade : Object
 	{
 		Proxy proxyAudio = new Proxy("AudioManager");
 		Proxy proxyManager = new Proxy("GameManager");
-		audioList = proxyAudio.GetObject().GetComponents<AudioSource>();
-		asteroidList = proxyManager.GetObject().GetComponent<AsteroidSpawner>().asteroidList;
-		powerUp = proxyManager.GetObject().GetComponent<AsteroidSpawner>().powerUp;
+
+		if (proxyAudio.GetObject() != null)
+        {
+            audioList = proxyAudio.GetObject().GetComponents<AudioSource>();
+        }
+		if (proxyManager.GetObject() != null)
+		{
+            asteroidList = proxyManager.GetObject().GetComponent<AsteroidSpawner>().asteroidList;
+        }
+		if (proxyManager.GetObject() != null)
+        {
+            powerUp = proxyManager.GetObject().GetComponent<AsteroidSpawner>().powerUp;
+        }
 
 		if (collision.collider.tag == "Bullet")
 		{

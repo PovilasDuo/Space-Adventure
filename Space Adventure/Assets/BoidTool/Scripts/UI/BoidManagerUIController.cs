@@ -587,7 +587,7 @@ public class BoidManagerUIController : MonoBehaviour
     /// <summary>
     /// Creates a new BoidManager UI document in the scene.
     /// </summary>
-    [MenuItem("GameObject/Boid System/Create new BoidManager UI document", false, 10)]
+    [MenuItem("GameObject/Boid System/Create New Boid Manager UI document", false, 10)]
     private static void CreateBoidManagerUIController()
     {
         GameObject uiControllerGO = new GameObject("BoidManagerUIController");
