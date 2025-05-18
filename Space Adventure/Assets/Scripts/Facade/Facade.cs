@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Facade : Object
@@ -81,7 +82,11 @@ public class Facade : Object
 			}
 			AsteroidDestruction(audioList[2], new GameObject(), 0);
 		}
-	}
+		else if (mainObject.CompareTag("Boid") && collision.collider.CompareTag("Asteroid"))
+		{
+            AsteroidDestruction(audioList[1], collision.gameObject, 0);
+        }
+    }
 
 	/// <summary>
 	/// Spawns asteroids

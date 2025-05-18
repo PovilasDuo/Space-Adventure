@@ -67,7 +67,7 @@ public class AdhocBoidSpawner : MonoBehaviour
                 if (powerUpRNG >= 75)
                 {
                     boid.GetComponent<Renderer>().material.color = Color.cyan;
-                    if (TryGetComponent(out AsteroidCollision asteroidCollision)) {
+                    if (boid.TryGetComponent(out AsteroidCollision asteroidCollision)) {
                         asteroidCollision.isPowerUp = true;
                     }
                 }

@@ -70,6 +70,10 @@ public class Boid : MonoBehaviour
     /// <param name="enabled"></param>
     public void SetVisionRange(bool enabled)
     {
+        if (lineRenderer == null)
+        {
+            lineRenderer = GetOrAddComponent<LineRenderer>();
+        }
         lineRenderer.enabled = enabled;
     }
 
@@ -183,7 +187,11 @@ public class Boid : MonoBehaviour
     /// <returns>Returns the component that it gets or that was added</returns>
     private T GetOrAddComponent<T>() where T : Component
     {
-        return TryGetComponent(out T component) ? component : gameObject.AddComponent<T>();
+        if (gameObject != null)
+        {
+            return TryGetComponent(out T component) ? component : gameObject.AddComponent<T>();
+        }
+        return null;
     }
 
     /// <summary>
@@ -465,11 +473,14 @@ public class Boid : MonoBehaviour
             {
                 if (hit.rigidbody != null)
                 {
-                    if (hit.rigidbody.CompareTag("Boid") || hit.rigidbody.CompareTag("Bullet"))
+                    if (hit.rigidbody.CompareTag("Boid"))
                     {
                         continue;
                     }
-                    else if (hit.rigidbody.CompareTag("Obstacle") && (i >= middleStart && i <= middleEnd))
+                    else if ((hit.rigidbody.CompareTag("Obstacle") || hit.rigidbody.CompareTag("Asteroid") ||
+                        hit.rigidbody.CompareTag("Bullet") ||
+                        hit.rigidbody.CompareTag("Player"))
+                        && (i >= middleStart && i <= middleEnd))
                     {
                         InvokeEvents(boidSettings.rayCastInteractionActions);
                     }
