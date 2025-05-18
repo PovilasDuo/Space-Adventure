@@ -563,7 +563,7 @@ MonoBehaviour:
   spawnSpeed: 2
   spawnDelay: 1
   minBoidsSpawned: 1
-  maxBoidsSpawned: 5
+  maxBoidsSpawned: 3
   gameStart: 0
 --- !u!1 &505110372 stripped
 GameObject:
@@ -1161,7 +1161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2115535155955965462, guid: 1cb635818274c80489b1d18dbc00a226, type: 3}
       propertyPath: health
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2115535155955965464, guid: 1cb635818274c80489b1d18dbc00a226, type: 3}
       propertyPath: m_Name

@@ -4851,7 +4851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2115535155955965462, guid: 1cb635818274c80489b1d18dbc00a226, type: 3}
       propertyPath: health
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2115535155955965462, guid: 1cb635818274c80489b1d18dbc00a226, type: 3}
       propertyPath: playerInput
