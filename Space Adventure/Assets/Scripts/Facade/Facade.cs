@@ -82,7 +82,7 @@ public class Facade : Object
 			}
 			AsteroidDestruction(audioList[2], new GameObject(), 0);
 		}
-		else if (mainObject.CompareTag("Boid") && collision.collider.CompareTag("Asteroid"))
+		else if (mainObject.CompareTag("Boid") && collision.collider.tag == "Asteroid")
 		{
             AsteroidDestruction(audioList[1], collision.gameObject, 0);
         }
