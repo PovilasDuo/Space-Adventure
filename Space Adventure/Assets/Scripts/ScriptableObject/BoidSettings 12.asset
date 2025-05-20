@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5485ced2bcb6b54d98be32ccb9d04d1, type: 3}
   m_Name: BoidSettings 12
   m_EditorClassIdentifier: 
-  flockID: 8
-  visionRadius: 22
-  visionAngle: 170
+  flockID: 7
+  visionRadius: 15
+  visionAngle: 135
   speed: 8
   smoothTime: 0.03
   speedScalingFactor: 5

@@ -39,7 +39,7 @@ MonoBehaviour:
   rayCastCooldown: 0.1
   lineSegments: 20
   displayVisionRange: 0
-  visualizeColors: 1
+  visualizeColors: 0
   useTrail: 1
   trailTime: 1.5
   setBoidColorBasedOnFlockId: 1

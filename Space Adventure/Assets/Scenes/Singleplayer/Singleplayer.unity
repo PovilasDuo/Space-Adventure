@@ -1300,6 +1300,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 4468580771172553260, guid: bb02bea9cce8df24c879055eef9e47a9, type: 3}
+      propertyPath: m_Volume
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 4468580771172553261, guid: bb02bea9cce8df24c879055eef9e47a9, type: 3}
       propertyPath: m_RootOrder
       value: 3

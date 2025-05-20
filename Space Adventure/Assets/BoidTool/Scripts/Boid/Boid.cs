@@ -70,7 +70,7 @@ public class Boid : MonoBehaviour
     /// <param name="enabled"></param>
     public void SetVisionRange(bool enabled)
     {
-        if (lineRenderer == null)
+        if (lineRenderer == null && gameObject != null)
         {
             lineRenderer = GetOrAddComponent<LineRenderer>();
         }
@@ -116,8 +116,11 @@ public class Boid : MonoBehaviour
     /// </summary>
     private void SetUpScreenWarp()
     {
-        ScreenWarp screenWarp = GetOrAddComponent<ScreenWarp>();
-        screenWarp.enabled = boidSettings.useScreenWarp;
+        if (gameObject != null)
+        {
+            ScreenWarp screenWarp = GetOrAddComponent<ScreenWarp>();
+            screenWarp.enabled = boidSettings.useScreenWarp;
+        }
     }
 
     /// <summary>
@@ -125,14 +128,17 @@ public class Boid : MonoBehaviour
     /// </summary>
     private void SetUpTrailRenderer()
     {
-        TrailRenderer trail = GetOrAddComponent<TrailRenderer>();
-        trail.enabled = boidSettings.useTrail;
-
-        if (boidSettings.useTrail)
+        if (gameObject != null)
         {
-            trail.time = boidSettings.trailTime;
-            trail.startWidth = 0.1f;
-            trail.endWidth = 0.05f;
+            TrailRenderer trail = GetOrAddComponent<TrailRenderer>();
+            trail.enabled = boidSettings.useTrail;
+
+            if (boidSettings.useTrail)
+            {
+                trail.time = boidSettings.trailTime;
+                trail.startWidth = 0.1f;
+                trail.endWidth = 0.05f;
+            }
         }
     }
 
@@ -141,15 +147,18 @@ public class Boid : MonoBehaviour
     /// </summary>
     private void SetUpLineRenderer()
     {
-        lineRenderer = GetOrAddComponent<LineRenderer>();
-        lineRenderer.enabled = boidSettings.displayVisionRange;
-
-        if (boidSettings.displayVisionRange)
+        if (gameObject != null)
         {
-            if (lineRenderer.sharedMaterial == null)
+            lineRenderer = GetOrAddComponent<LineRenderer>();
+            lineRenderer.enabled = boidSettings.displayVisionRange;
+
+            if (boidSettings.displayVisionRange)
             {
-                lineRenderer.startWidth = 0.05f;
-                lineRenderer.endWidth = 0.05f;
+                if (lineRenderer.sharedMaterial == null)
+                {
+                    lineRenderer.startWidth = 0.05f;
+                    lineRenderer.endWidth = 0.05f;
+                }
             }
         }
     }
@@ -199,26 +208,29 @@ public class Boid : MonoBehaviour
     /// </summary>
     public void UpdateProperties()
     {
-        TrailRenderer trailRenderer = GetOrAddComponent<TrailRenderer>();
-        trailRenderer.enabled = boidSettings.useTrail;
-        if (boidSettings.useTrail)
+        if (gameObject != null)
         {
-            SetUpTrailRenderer();
-        }
+            TrailRenderer trailRenderer = GetOrAddComponent<TrailRenderer>();
+            trailRenderer.enabled = boidSettings.useTrail;
+            if (boidSettings.useTrail)
+            {
+                SetUpTrailRenderer();
+            }
 
-        LineRenderer lineRenderer = GetOrAddComponent<LineRenderer>();
-        lineRenderer.enabled = boidSettings.displayVisionRange;
-        if (boidSettings.displayVisionRange)
-        {
-            SetUpLineRenderer();
-        }
+            LineRenderer lineRenderer = GetOrAddComponent<LineRenderer>();
+            lineRenderer.enabled = boidSettings.displayVisionRange;
+            if (boidSettings.displayVisionRange)
+            {
+                SetUpLineRenderer();
+            }
 
 
-        ScreenWarp screenWarp = GetOrAddComponent<ScreenWarp>();
-        screenWarp.enabled = boidSettings.useScreenWarp;
-        if (boidSettings.useScreenWarp)
-        {
-            SetUpScreenWarp();
+            ScreenWarp screenWarp = GetOrAddComponent<ScreenWarp>();
+            screenWarp.enabled = boidSettings.useScreenWarp;
+            if (boidSettings.useScreenWarp)
+            {
+                SetUpScreenWarp();
+            }
         }
     }
 

@@ -40,10 +40,10 @@ MonoBehaviour:
   rayCastCooldown: 0.1
   lineSegments: 20
   displayVisionRange: 0
-  visualizeColors: 1
+  visualizeColors: 0
   useTrail: 1
   trailTime: 1
-  setBoidColorBasedOnFlockId: 0
+  setBoidColorBasedOnFlockId: 1
   avoidanceThreshold: 0.2
   distanceFromLeader: 2
   useScreenWarp: 1
